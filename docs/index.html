@@ -32,6 +32,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -247,22 +249,28 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">SaniVult</a>
+      <a class="navbar-brand" href="index.html">The SaniVult project</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home</a>
+  <a href="index.html">The SaniVult project</a>
 </li>
 <li>
-  <a href="about.html">About</a>
+  <a href="Reproducible.html">Reproducible workflow</a>
 </li>
 <li>
   <a href="license.html">License</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/palmaraz/SaniVult">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -328,22 +336,39 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong9a35b18"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 9a35b18 </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcompalmarazSaniVulttreedb03433f8bb05715a2126f683194a091866f9c2etargetblankdb03433a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/palmaraz/SaniVult/tree/db03433f8bb05715a2126f683194a091866f9c2e" target="_blank">db03433</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong9a35b18" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcompalmarazSaniVulttreedb03433f8bb05715a2126f683194a091866f9c2etargetblankdb03433a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 9a35b18. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/palmaraz/SaniVult/tree/db03433f8bb05715a2126f683194a091866f9c2e" target="_blank">db03433</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
-working directory clean
+Ignored files:
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  CITATION
+    Untracked:  LICENSE
+    Untracked:  Makefile
+    Untracked:  analysis/Reproducible.Rmd
+
+Unstaged changes:
+    Modified:   analysis/_site.yml
+    Deleted:    analysis/about.Rmd
+    Modified:   analysis/license.Rmd
+    Deleted:    code/README.md
+    Deleted:    data/README.md
+    Deleted:    output/README.md
+
 </code></pre>
 <p>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
@@ -383,10 +408,27 @@ Message
 <tbody>
 <tr>
 <td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/palmaraz/SaniVult/786d58c1e9b943ca555624461eef95b150dc7cec/docs/index.html" target="_blank">786d58c</a>
+</td>
+<td>
+Pablo Almaraz
+</td>
+<td>
+2021-11-17
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
 Rmd
 </td>
 <td>
-9a35b18
+<a href="https://github.com/palmaraz/SaniVult/blob/9a35b180b5e70ef529ce25e55d5e5dd68ccc0e43/analysis/index.Rmd" target="_blank">9a35b18</a>
 </td>
 <td>
 Pablo Almaraz

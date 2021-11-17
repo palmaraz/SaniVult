@@ -1,12 +1,12 @@
 name: SaniVult
 output_dir: ../docs
 navbar:
-  title: SaniVult
+  title: The SaniVult project
   left:
-  - text: Home
+  - text: The SaniVult project
     href: index.html
-  - text: About
-    href: about.html
+  - text: Reproducible workflow
+    href: Reproducible.html
   - text: License
     href: license.html
   right:
