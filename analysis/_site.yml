@@ -1,7 +1,7 @@
-name: "SaniVult"
+name: SaniVult
 output_dir: ../docs
 navbar:
-  title: "SaniVult"
+  title: SaniVult
   left:
   - text: Home
     href: index.html
@@ -9,6 +9,10 @@ navbar:
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fa-github
+    text: Source code
+    href: https://github.com/palmaraz/SaniVult
 output:
   workflowr::wflow_html:
     toc: yes
