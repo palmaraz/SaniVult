@@ -1,53 +1,37 @@
-.PHONY: Analyze PPC simulate compile open All
+.PHONY: analyze compile all
 
 .DEFAULT_GOAL := help
 
-Analyze: ## 1) Analyze all data
+analyze: ## 1) Analyze all data
 	@echo 'This code reproduces the manuscript, including'
 	@echo 'all the analyses and figures'
-	@echo 'Begin SSSSDM fitting...'
-	@Rscript R/SSSSDM_Fitting.R
-	@echo '... end SSSSDM'
+	@echo 'Begin S4D3M fitting...'
+	@Rscript code/S4D3M_JAGS_Fitting.R
+	@echo '... end S4D3M'
 
-PPC: ## 2) Perform Posterior predicted checks
-	@echo 'Begin posterior predicted checks...'
-	@Rscript R/SSSSDM_PPC.R
-	@echo '... end posterior predicted checks'
-
-simulate: ## 3) Simulate decreasing vital rates
-	@echo 'Begin posterior simulation...'
-	@Rscript R/SSSSDM_SimulateRates.R
-	@echo '... end posterior simulation'
-
-compile: ## 4) Compile manuscript
+compile: ## 2) Compile manuscript
 	@echo 'Compile manuscript...'
-	@cd manuscript/
-	@pdflatex --interaction=batchmode JAE-2019-00846v2.tex
-	@pdflatex --interaction=batchmode JAE-2019-00846v2.tex
-
-open: ## 5) Open manuscript
+	@cd ms/; find . -maxdepth 1 -name '*.tex' -exec pdflatex --interaction=batchmode {} \;
+	@cd ms/; find . -maxdepth 1 -name '*.bcf' -exec biber {} \;
+	@cd ms/; find . -maxdepth 1 -name '*.tex' -exec pdflatex --interaction=batchmode {} \;
+	@cd ms/; rm *.log *.aux *.out *.bcf *.toc *.run.xml *.bbl *.blg
 	@echo 'Open manuscript...'
-	@xdg-open manuscript/MS_2020_MainText.pdf
+	@cd ms/; find . -maxdepth 1 -name '*.pdf' -exec xdg-open {} \;
 	@echo '...finished!'
 
-All: ## Reproduce the whole project
+all: ## Reproduce the whole project
 	@echo 'This code reproduces the manuscript, including'
 	@echo 'all the analyses and figures'
-	@echo 'Begin SSSSDM fitting...'
-	@Rscript R/SSSSDM_Fitting.R
-	@echo '... end SSSSDM'
-	@echo 'Begin posterior predicted checks...'
-	@Rscript R/SSSSDM_PPC.R
-	@echo '... end posterior predicted checks'
-	@echo 'Begin posterior simulation...'
-	@Rscript R/SSSSDM_SimulateRates.R
-	@echo '... end posterior simulation'
+	@echo 'Begin S4D3M fitting...'
+	@Rscript code/S4D3M_JAGS_Fitting.R
+	@echo '... end S4D3M'
 	@echo 'Compile manuscript...'
-	@cd manuscript/
-	@pdflatex --interaction=batchmode JAE-2019-00846v2.tex
-	@pdflatex --interaction=batchmode JAE-2019-00846v2.tex
+	@cd ms/; find . -maxdepth 1 -name '*.tex' -exec pdflatex --interaction=batchmode {} \;
+	@cd ms/; find . -maxdepth 1 -name '*.bcf' -exec biber {} \;
+	@cd ms/; find . -maxdepth 1 -name '*.tex' -exec pdflatex --interaction=batchmode {} \;
+	@cd ms/; rm *.log *.aux *.out *.bcf *.toc *.run.xml *.bbl *.blg
 	@echo 'Open manuscript...'
-	@xdg-open MS_2020_MainText.pdf
+	@cd ms/; find . -maxdepth 1 -name '*.pdf' -exec xdg-open {} \;
 	@echo '...finished!'
 
 .PHONY: help

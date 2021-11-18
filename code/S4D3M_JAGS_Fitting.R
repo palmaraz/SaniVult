@@ -1,31 +1,11 @@
----
-title: "Reproducible workflow"
-author: "Pablo Almaraz"
-date: "2021-11-17"
-output: workflowr::wflow_html
-editor_options:
-  chunk_output_type: console
----
-
-## Introduction
-
-```{r}
 if (!require(checkpoint)) install.packages('checkpoint')
 # checkpoint::checkpoint("2021-11-18")
 
 if (!require(pacman)) install.packages('pacman')
-
 pacman::p_load(tidyverse,runjags,coda,ggmcmc,xtable,data.table,viridis,ggsci,patchwork,mvtnorm,truncnorm)
 
-```
-
-
-```{r}
 source("code/utilities.r")
-```
 
-
-```{r}
 # All periods ####
 
 for(TimePeriod in c("PreBSE","BSE","PostBSE")){
@@ -54,12 +34,7 @@ for(TimePeriod in c("PreBSE","BSE","PostBSE")){
                thin_ppc = 100)
 
   }
-```
 
-
-```{r}
+# Plot Figures ####
 
 Figures()
-
-```
-
