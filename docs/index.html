@@ -254,7 +254,7 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">The SaniVult project</a>
+  <a href="index.html">Home</a>
 </li>
 <li>
   <a href="Reproducible.html">Reproducible workflow</a>
@@ -287,7 +287,7 @@ $(document).ready(function () {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -296,7 +296,7 @@ $(document).ready(function () {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -305,10 +305,10 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-11-17
+<strong>Last updated:</strong> 2021-11-18
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 1 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>SaniVult/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -324,28 +324,28 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcompalmarazSaniVulttreedb03433f8bb05715a2126f683194a091866f9c2etargetblankdb03433a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/palmaraz/SaniVult/tree/db03433f8bb05715a2126f683194a091866f9c2e" target="_blank">db03433</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcompalmarazSaniVulttreeef474204a6a19fa37db3d746a388b926053befe5targetblankef47420a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/palmaraz/SaniVult/tree/ef474204a6a19fa37db3d746a388b926053befe5" target="_blank">ef47420</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcompalmarazSaniVulttreedb03433f8bb05715a2126f683194a091866f9c2etargetblankdb03433a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcompalmarazSaniVulttreeef474204a6a19fa37db3d746a388b926053befe5targetblankef47420a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/palmaraz/SaniVult/tree/db03433f8bb05715a2126f683194a091866f9c2e" target="_blank">db03433</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/palmaraz/SaniVult/tree/ef474204a6a19fa37db3d746a388b926053befe5" target="_blank">ef47420</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -355,19 +355,13 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
-Untracked files:
-    Untracked:  CITATION
-    Untracked:  LICENSE
-    Untracked:  Makefile
-    Untracked:  analysis/Reproducible.Rmd
-
 Unstaged changes:
+    Modified:   LICENSE
+    Modified:   README.md
+    Modified:   SaniVult.Rproj
+    Modified:   analysis/Reproducible.Rmd
     Modified:   analysis/_site.yml
-    Deleted:    analysis/about.Rmd
-    Modified:   analysis/license.Rmd
-    Deleted:    code/README.md
-    Deleted:    data/README.md
-    Deleted:    output/README.md
+    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -411,6 +405,23 @@ Message
 html
 </td>
 <td>
+<a href="https://rawcdn.githack.com/palmaraz/SaniVult/b597ece0a78b36f8fdc0a367bc0d88bfb5a06c0f/docs/index.html" target="_blank">b597ece</a>
+</td>
+<td>
+Pablo Almaraz
+</td>
+<td>
+2021-11-17
+</td>
+<td>
+wflow_git_commit(all = T)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
 <a href="https://rawcdn.githack.com/palmaraz/SaniVult/786d58c1e9b943ca555624461eef95b150dc7cec/docs/index.html" target="_blank">786d58c</a>
 </td>
 <td>
@@ -447,7 +458,7 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<p>Welcome to my research website.</p>
+<p>This repository contains the project</p>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using

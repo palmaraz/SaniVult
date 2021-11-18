@@ -3,7 +3,7 @@ output_dir: ../docs
 navbar:
   title: The SaniVult project
   left:
-  - text: The SaniVult project
+  - text: Home
     href: index.html
   - text: Reproducible workflow
     href: Reproducible.html
