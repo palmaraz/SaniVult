@@ -12,7 +12,6 @@
 
 <!-- TABLE OF CONTENTS -->
 
-<details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
@@ -31,13 +30,11 @@
         <li><a href="#workflow">Workflow</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#folder-structure">Folder structure</a></li>
+    <li><a href="#r-packages-used-in-this-project">R packages used in this project</a></li>
   </ol>
-</details>
 
 <br />
 

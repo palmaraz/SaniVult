@@ -1,0 +1,1 @@
+Fitting of the bayesian model took 45.8805 minutes, or 0.764675 hours.
