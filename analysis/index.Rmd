@@ -16,7 +16,11 @@ Please look the `README` file for further details on reproducing the results of 
 
 Check that the [pacman](https://github.com/trinker/pacman) package is installed. Alternatively, note that you can use the [checkpoint](https://github.com/RevolutionAnalytics/checkpoint) package to build an environment identical to the date of completion of the present project. Look at the `Session information` tab below. After [pacman](https://github.com/trinker/pacman) is installed, the `p_load` function will check that the selected packages are installed. If they are, it will load them; if not, it will first install them and then load them.
 
-```{r, eval=T}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, eval=TRUE}
 # if (!require(checkpoint)) install.packages('checkpoint')
 # checkpoint::checkpoint("2021-11-18")
 
@@ -29,7 +33,7 @@ pacman::p_load(tidyverse,runjags,coda,ggmcmc,xtable,data.table,viridis,ggsci,pat
 ## Load utilities and functions
 
 ```{r, eval=FALSE}
-source("code/utilities.r")
+source("code/utilities.R")
 ```
 
 ## Conduct the analyes
