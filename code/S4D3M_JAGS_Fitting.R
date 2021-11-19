@@ -4,7 +4,7 @@ if (!require(checkpoint)) install.packages('checkpoint')
 if (!require(pacman)) install.packages('pacman')
 pacman::p_load(tidyverse,runjags,coda,ggmcmc,xtable,data.table,viridis,ggsci,patchwork,mvtnorm,truncnorm,grateful)
 
-source("code/utilities.r")
+source("code/utilities.R")
 
 # All periods ####
 
