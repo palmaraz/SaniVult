@@ -120,7 +120,7 @@ This section shows how to reproduce the results of the accompanying paper. The f
 
 ```
 
-In this folder, the file `./code/utilities.R` contains all the functions and utilities necessary to conduct the analyses. The file `./code/S4D3M_JAGS_model.jags` contains the state-space stage-structured demographic density-dependent model (S4D3M) developed in the [accompanying paper](https://esajournals.onlinelibrary.wiley.com/journal/19395582) written in the [JAGS](https://sourceforge.net/projects/mcmc-jags/) language.
+In this folder, the file `./code/utilities.R` contains all the functions and utilities necessary to conduct the analyses. The file `./code/S4D3M_JAGS_model.jags` contains the state-space stage-structured demographic density-dependent model ([S4D3M](https://github.com/palmaraz/SaniVult/blob/master/code/S4D3M_JAGS_model.jags)) developed in the [accompanying paper](https://esajournals.onlinelibrary.wiley.com/journal/19395582) written in the [JAGS](https://sourceforge.net/projects/mcmc-jags/) language.
 
 The data folder has the following structure:
 
@@ -142,9 +142,9 @@ Prior to reproducing the results, make sure to have installed all the necessary 
 
 You can reproduce the results of the accompanying with two methods:
 
-1.  From within `R`, simply `source` the file `./code/S4D3M_JAGS_Fitting.R`. This will perform all the analyses of the paper in the required order. Note that the S4D3M is fitted through Bayesian MCMC methods using Gibbs sampling, and runs in [JAGS](https://sourceforge.net/projects/mcmc-jags/): even though [JAGS](https://sourceforge.net/projects/mcmc-jags/) is written in the [C++](https://isocpp.org/) language, the code can take several hours to run depending on the architecture used. Note that there are relatively easy ways of parallelizing this code.
+1.  From within `R`, simply `source` the file `./code/S4D3M_JAGS_Fitting.R`. This will perform all the analyses of the paper in the required order. Note that the [S4D3M](https://github.com/palmaraz/SaniVult/blob/master/code/S4D3M_JAGS_model.jags) is fitted through Bayesian MCMC methods using Gibbs sampling, and runs in [JAGS](https://sourceforge.net/projects/mcmc-jags/): even though [JAGS](https://sourceforge.net/projects/mcmc-jags/) is written in the [C++](https://isocpp.org/) language, the code can take several hours to run depending on the architecture used. Note that there are relatively easy ways of parallelizing this code.
 
-2.  The second, easiest way to reproduce all the analyese in the project is to use the `Makefile`. With simple [GNU Make](https://www.gnu.org/software/make/) syntax, you can reproduce all the project, from statistical analyses to manuscript production. For exampole, in [GNU/Linux](https://www.gnu.org/) based systems, you can point with the command shell to the project folder and run the following command:
+2.  The second, easiest way to reproduce all the analyses in the project is to use the `Makefile`. With simple [GNU Make](https://www.gnu.org/software/make/) syntax, you can reproduce all the project, from statistical analyses to manuscript production. For exampole, in [GNU/Linux](https://www.gnu.org/) based systems, you can point with the command shell to the project folder and run the following command:
 
     ``` sh
     make all

@@ -479,7 +479,7 @@ Table of Contents
 │   ├── ./code/S4D3M_JAGS_model.jags
 │   └── ./code/utilities.R
 </code></pre>
-<p>In this folder, the file <code>./code/utilities.R</code> contains all the functions and utilities necessary to conduct the analyses. The file <code>./code/S4D3M_JAGS_model.jags</code> contains the state-space stage-structured demographic density-dependent model (S4D3M) developed in the <a href="https://esajournals.onlinelibrary.wiley.com/journal/19395582">accompanying paper</a> written in the <a href="https://sourceforge.net/projects/mcmc-jags/">JAGS</a> language.</p>
+<p>In this folder, the file <code>./code/utilities.R</code> contains all the functions and utilities necessary to conduct the analyses. The file <code>./code/S4D3M_JAGS_model.jags</code> contains the state-space stage-structured demographic density-dependent model (<a href="https://github.com/palmaraz/SaniVult/blob/master/code/S4D3M_JAGS_model.jags">S4D3M</a>) developed in the <a href="https://esajournals.onlinelibrary.wiley.com/journal/19395582">accompanying paper</a> written in the <a href="https://sourceforge.net/projects/mcmc-jags/">JAGS</a> language.</p>
 <p>The data folder has the following structure:</p>
 <pre class="bash"><code>├── ./data
 │   ├── ./data/Breeding_output.csv
@@ -496,8 +496,8 @@ Table of Contents
 <h3>Workflow</h3>
 <p>You can reproduce the results of the accompanying with two methods:</p>
 <ol style="list-style-type: decimal">
-<li><p>From within <code>R</code>, simply <code>source</code> the file <code>./code/S4D3M_JAGS_Fitting.R</code>. This will perform all the analyses of the paper in the required order. Note that the S4D3M is fitted through Bayesian MCMC methods using Gibbs sampling, and runs in <a href="https://sourceforge.net/projects/mcmc-jags/">JAGS</a>: even though <a href="https://sourceforge.net/projects/mcmc-jags/">JAGS</a> is written in the <a href="https://isocpp.org/">C++</a> language, the code can take several hours to run depending on the architecture used. Note that there are relatively easy ways of parallelizing this code.</p></li>
-<li><p>The second, easiest way to reproduce all the analyese in the project is to use the <code>Makefile</code>. With simple <a href="https://www.gnu.org/software/make/">GNU Make</a> syntax, you can reproduce all the project, from statistical analyses to manuscript production. For exampole, in <a href="https://www.gnu.org/">GNU/Linux</a> based systems, you can point with the command shell to the project folder and run the following command:</p>
+<li><p>From within <code>R</code>, simply <code>source</code> the file <code>./code/S4D3M_JAGS_Fitting.R</code>. This will perform all the analyses of the paper in the required order. Note that the <a href="https://github.com/palmaraz/SaniVult/blob/master/code/S4D3M_JAGS_model.jags">S4D3M</a> is fitted through Bayesian MCMC methods using Gibbs sampling, and runs in <a href="https://sourceforge.net/projects/mcmc-jags/">JAGS</a>: even though <a href="https://sourceforge.net/projects/mcmc-jags/">JAGS</a> is written in the <a href="https://isocpp.org/">C++</a> language, the code can take several hours to run depending on the architecture used. Note that there are relatively easy ways of parallelizing this code.</p></li>
+<li><p>The second, easiest way to reproduce all the analyses in the project is to use the <code>Makefile</code>. With simple <a href="https://www.gnu.org/software/make/">GNU Make</a> syntax, you can reproduce all the project, from statistical analyses to manuscript production. For exampole, in <a href="https://www.gnu.org/">GNU/Linux</a> based systems, you can point with the command shell to the project folder and run the following command:</p>
 <pre class="sh"><code>make all</code></pre></li>
 </ol>
 <p>This command will perform the following:</p>
