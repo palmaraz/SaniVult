@@ -100,7 +100,7 @@ In this folder, the file `./code/utilities.r` contains all the functions and uti
 
 <p align="center">
   <a href="https://github.com/palmaraz/SaniVult">
-    <img src="docs/image/S4D3M.svg" title="State-space stage-structured demographic density-dependent model (S4D3M)">
+    <img src="docs/imgs/S4D3M.svg"  width="450" title="State-space stage-structured demographic density-dependent model (S4D3M)">
   </a>
 </p>
 
