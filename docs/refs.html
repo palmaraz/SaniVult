@@ -11,7 +11,7 @@
 
 
 
-<title>License</title>
+<title>R packages used</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,6 +29,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -68,6 +71,28 @@ if (window.hljs) {
 
 
 
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 
 
@@ -230,6 +255,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -237,6 +325,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -280,7 +378,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">License</h1>
+<h1 class="title toc-ignore">R packages used</h1>
 
 </div>
 
@@ -398,7 +496,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/license.Rmd</code>) and HTML (<code>docs/license.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/refs.Rmd</code>) and HTML (<code>docs/refs.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -424,10 +522,10 @@ Message
 <tbody>
 <tr>
 <td>
-html
+Rmd
 </td>
 <td>
-<a href="https://rawcdn.githack.com/palmaraz/SaniVult/6d825ea854426178f8ccdaeea42b3e0d5159dc73/docs/license.html" target="_blank">6d825ea</a>
+<a href="https://github.com/palmaraz/SaniVult/blob/073c12dae6e9ac7524380ee3e3964dd1c217e640/analysis/refs.Rmd" target="_blank">073c12d</a>
 </td>
 <td>
 Pablo Almaraz
@@ -436,92 +534,7 @@ Pablo Almaraz
 2021-11-19
 </td>
 <td>
-Nearly there
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/palmaraz/SaniVult/43d2aceb5f0d2e60ccfd1c6186741661f5232760/docs/license.html" target="_blank">43d2ace</a>
-</td>
-<td>
-Pablo Almaraz
-</td>
-<td>
-2021-11-18
-</td>
-<td>
-Update
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/palmaraz/SaniVult/blob/b597ece0a78b36f8fdc0a367bc0d88bfb5a06c0f/analysis/license.Rmd" target="_blank">b597ece</a>
-</td>
-<td>
-Pablo Almaraz
-</td>
-<td>
-2021-11-17
-</td>
-<td>
-wflow_git_commit(all = T)
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/palmaraz/SaniVult/b597ece0a78b36f8fdc0a367bc0d88bfb5a06c0f/docs/license.html" target="_blank">b597ece</a>
-</td>
-<td>
-Pablo Almaraz
-</td>
-<td>
-2021-11-17
-</td>
-<td>
-wflow_git_commit(all = T)
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/palmaraz/SaniVult/786d58c1e9b943ca555624461eef95b150dc7cec/docs/license.html" target="_blank">786d58c</a>
-</td>
-<td>
-Pablo Almaraz
-</td>
-<td>
-2021-11-17
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/palmaraz/SaniVult/blob/9a35b180b5e70ef529ce25e55d5e5dd68ccc0e43/analysis/license.Rmd" target="_blank">9a35b18</a>
-</td>
-<td>
-Pablo Almaraz
-</td>
-<td>
-2021-11-17
-</td>
-<td>
-Start workflowr project.
+Publish
 </td>
 </tr>
 </tbody>
@@ -531,12 +544,105 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<p>This project is distributed under the <a href="https://choosealicense.com/licenses/mit/">MIT license</a>.</p>
-<p>MIT License</p>
-<p>Copyright (c) 2021 Pablo Almaraz <a href="https://orcid.org/0000-0003-1416-2695" class="uri">https://orcid.org/0000-0003-1416-2695</a></p>
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
-<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
-<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+<ul>
+<li>base <span class="citation">(R Core Team 2021)</span></li>
+<li>workflowr <span class="citation">(Blischak, Carbonetto, and Stephens 2019)</span></li>
+<li>rmarkdown <span class="citation">(Xie, Dervieux, and Riederer 2020)</span></li>
+<li>checkpoint <span class="citation">(Ooi, de Vries, and Microsoft 2021)</span></li>
+<li>coda <span class="citation">(Plummer et al. 2006)</span></li>
+<li>data.table <span class="citation">(Dowle and Srinivasan 2021)</span></li>
+<li>ggmcmc <span class="citation">(Fernández-i-Marín 2016)</span></li>
+<li>ggsci <span class="citation">(Xiao 2018)</span></li>
+<li>grateful <span class="citation">(Rodríguez-Sánchez and Hutchins 2020)</span></li>
+<li>mvtnorm <span class="citation">(Genz and Bretz 2009)</span></li>
+<li>pacman <span class="citation">(Rinker and Kurkiewicz 2018)</span></li>
+<li>patchwork <span class="citation">(Pedersen 2020)</span></li>
+<li>runjags <span class="citation">(Denwood 2016)</span></li>
+<li>tidyverse <span class="citation">(Wickham et al. 2019)</span></li>
+<li>truncnorm <span class="citation">(Mersmann et al. 2018)</span></li>
+<li>viridis <span class="citation">(Garnier et al. 2021)</span></li>
+<li>xtable <span class="citation">(Dahl et al. 2019)</span></li>
+<li>dplyr <span class="citation">(Wickham et al. 2021)</span></li>
+<li>ggpubr <span class="citation">(Kassambara 2020)</span></li>
+<li>plyr <span class="citation">(Wickham 2011)</span></li>
+<li>readr <span class="citation">(Wickham and Hester 2021)</span></li>
+<li>reshape2 <span class="citation">(Wickham 2007)</span></li>
+<li>tibble <span class="citation">(Müller and Wickham 2021)</span></li>
+</ul>
+<div id="references" class="section level2 unnumbered">
+<h2 class="unnumbered">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-workflowr" class="csl-entry">
+Blischak, John D, Peter Carbonetto, and Matthew Stephens. 2019. <span>“Creating and Sharing Reproducible Research Code the Workflowr Way [Version 1; Peer Review: 3 Approved].”</span> <em>F1000Research</em> 8 (1749). <a href="https://doi.org/10.12688/f1000research.20843.1">https://doi.org/10.12688/f1000research.20843.1</a>.
+</div>
+<div id="ref-xtable" class="csl-entry">
+Dahl, David B., David Scott, Charles Roosen, Arni Magnusson, and Jonathan Swinton. 2019. <em>Xtable: Export Tables to LaTeX or HTML</em>. <a href="https://CRAN.R-project.org/package=xtable">https://CRAN.R-project.org/package=xtable</a>.
+</div>
+<div id="ref-runjags" class="csl-entry">
+Denwood, Matthew J. 2016. <span>“<span class="nocase">runjags</span>: An <span>R</span> Package Providing Interface Utilities, Model Templates, Parallel Computing Methods and Additional Distributions for <span>MCMC</span> Models in <span>JAGS</span>.”</span> <em>Journal of Statistical Software</em> 71 (9): 1–25. <a href="https://doi.org/10.18637/jss.v071.i09">https://doi.org/10.18637/jss.v071.i09</a>.
+</div>
+<div id="ref-data.table" class="csl-entry">
+Dowle, Matt, and Arun Srinivasan. 2021. <em>Data.table: Extension of ‘Data.frame‘</em>. <a href="https://CRAN.R-project.org/package=data.table">https://CRAN.R-project.org/package=data.table</a>.
+</div>
+<div id="ref-ggmcmc" class="csl-entry">
+Fernández-i-Marín, Xavier. 2016. <span>“<span class="nocase">ggmcmc</span>: Analysis of <span>MCMC</span> Samples and <span>B</span>ayesian Inference.”</span> <em>Journal of Statistical Software</em> 70 (9): 1–20. <a href="https://doi.org/10.18637/jss.v070.i09">https://doi.org/10.18637/jss.v070.i09</a>.
+</div>
+<div id="ref-viridis" class="csl-entry">
+Garnier, Simon, Ross, Noam, Rudis, Robert, Camargo, et al. 2021. <em><span class="nocase">viridis</span> - Colorblind-Friendly Color Maps for r</em>. <a href="https://doi.org/10.5281/zenodo.4679424">https://doi.org/10.5281/zenodo.4679424</a>.
+</div>
+<div id="ref-mvtnorm" class="csl-entry">
+Genz, Alan, and Frank Bretz. 2009. <em>Computation of Multivariate Normal and t Probabilities</em>. Lecture Notes in Statistics. Heidelberg: Springer-Verlag.
+</div>
+<div id="ref-ggpubr" class="csl-entry">
+Kassambara, Alboukadel. 2020. <em>Ggpubr: ’Ggplot2’ Based Publication Ready Plots</em>. <a href="https://CRAN.R-project.org/package=ggpubr">https://CRAN.R-project.org/package=ggpubr</a>.
+</div>
+<div id="ref-truncnorm" class="csl-entry">
+Mersmann, Olaf, Heike Trautmann, Detlef Steuer, and Björn Bornkamp. 2018. <em>Truncnorm: Truncated Normal Distribution</em>. <a href="https://CRAN.R-project.org/package=truncnorm">https://CRAN.R-project.org/package=truncnorm</a>.
+</div>
+<div id="ref-tibble" class="csl-entry">
+Müller, Kirill, and Hadley Wickham. 2021. <em>Tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble">https://CRAN.R-project.org/package=tibble</a>.
+</div>
+<div id="ref-checkpoint" class="csl-entry">
+Ooi, Hong, Andrie de Vries, and Microsoft. 2021. <em>Checkpoint: Install Packages from Snapshots on the Checkpoint Server for Reproducibility</em>. <a href="https://CRAN.R-project.org/package=checkpoint">https://CRAN.R-project.org/package=checkpoint</a>.
+</div>
+<div id="ref-patchwork" class="csl-entry">
+Pedersen, Thomas Lin. 2020. <em>Patchwork: The Composer of Plots</em>. <a href="https://CRAN.R-project.org/package=patchwork">https://CRAN.R-project.org/package=patchwork</a>.
+</div>
+<div id="ref-coda" class="csl-entry">
+Plummer, Martyn, Nicky Best, Kate Cowles, and Karen Vines. 2006. <span>“CODA: Convergence Diagnosis and Output Analysis for MCMC.”</span> <em>R News</em> 6 (1): 7–11. <a href="https://journal.r-project.org/archive/">https://journal.r-project.org/archive/</a>.
+</div>
+<div id="ref-base" class="csl-entry">
+R Core Team. 2021. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-pacman" class="csl-entry">
+Rinker, Tyler W., and Dason Kurkiewicz. 2018. <em><span class="nocase">pacman</span>: <span>P</span>ackage Management for <span>R</span></em>. Buffalo, New York. <a href="http://github.com/trinker/pacman">http://github.com/trinker/pacman</a>.
+</div>
+<div id="ref-grateful" class="csl-entry">
+Rodríguez-Sánchez, Francisco, and Shaurita D. Hutchins. 2020. <em>Grateful: Facilitate Citation of r Packages</em>. <a href="https://github.com/Pakillo/grateful">https://github.com/Pakillo/grateful</a>.
+</div>
+<div id="ref-reshape2" class="csl-entry">
+Wickham, Hadley. 2007. <span>“Reshaping Data with the <span class="nocase">reshape</span> Package.”</span> <em>Journal of Statistical Software</em> 21 (12): 1–20. <a href="http://www.jstatsoft.org/v21/i12/">http://www.jstatsoft.org/v21/i12/</a>.
+</div>
+<div id="ref-plyr" class="csl-entry">
+———. 2011. <span>“The Split-Apply-Combine Strategy for Data Analysis.”</span> <em>Journal of Statistical Software</em> 40 (1): 1–29. <a href="http://www.jstatsoft.org/v40/i01/">http://www.jstatsoft.org/v40/i01/</a>.
+</div>
+<div id="ref-tidyverse" class="csl-entry">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-dplyr" class="csl-entry">
+Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2021. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
+</div>
+<div id="ref-readr" class="csl-entry">
+Wickham, Hadley, and Jim Hester. 2021. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.
+</div>
+<div id="ref-ggsci" class="csl-entry">
+Xiao, Nan. 2018. <em>Ggsci: Scientific Journal and Sci-Fi Themed Color Palettes for ’Ggplot2’</em>. <a href="https://CRAN.R-project.org/package=ggsci">https://CRAN.R-project.org/package=ggsci</a>.
+</div>
+<div id="ref-rmarkdown" class="csl-entry">
+Xie, Yihui, Christophe Dervieux, and Emily Riederer. 2020. <em>R Markdown Cookbook</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown-cookbook">https://bookdown.org/yihui/rmarkdown-cookbook</a>.
+</div>
+</div>
+</div>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
@@ -554,6 +660,8 @@ footer is added to webpages before the MathJax javascript. -->
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -586,6 +694,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
