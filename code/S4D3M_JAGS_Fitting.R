@@ -15,12 +15,13 @@ for(TimePeriod in c("PreBSE","BSE","PostBSE")){
 
   # Find the equilibrium population and the variance of state variables: ####
   find_equilibrium_population(TimePeriod,
+                              adapt = 10000,
                               burnin = 100000,
                               sample = 1000,
                               thin = 100)
 
   # Fit the SSSSDDDM: ####
-  fit_SSSSDDDM(TimePeriod,
+  fit_S4D3M(TimePeriod,
                n.chains = 3,
                adapt = 10000,
                burnin = 500000,
@@ -28,7 +29,7 @@ for(TimePeriod in c("PreBSE","BSE","PostBSE")){
                thin = 500,
                mcmc_diagnostics_plots = TRUE,
                PPC_simulations = TRUE,
-               N_PPC_Fits = 100,
+               N_PPC_Fits = 50,
                burnin_ppc = 100000,
                sample_ppc = 1000,
                thin_ppc = 100)

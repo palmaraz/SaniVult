@@ -5,8 +5,6 @@ navbar:
   left:
   - text: Home
     href: index.html
-  - text: Reproducible workflow
-    href: Reproducible.html
   - text: License
     href: license.html
   right:
