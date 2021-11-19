@@ -1,8 +1,3 @@
----
-bibliography: pkg-refs.bib
----
-
-
 <div id="top"></div>
 
 <br />
@@ -86,12 +81,14 @@ This is a [workflowr](https://github.com/jdblischak/workflowr) project bootstrap
 -   [R](https://cran.r-project.org/)
 -   [RStudio](https://www.rstudio.com/)
 
-A suite of [R](https://cran.r-project.org/) packages were used in this project. I am [grateful](https://github.com/Pakillo/grateful) to all the people involved in the development of these open-source packages:
-
+A suite of [R](https://cran.r-project.org/) packages were used in this project. I am [grateful](https://github.com/Pakillo/grateful) to all the people involved in the development of these open-source packages. Run the following [R](https://cran.r-project.org/) command from within the project for producing a reference list of the packages used:
 
 ```R
 grateful::cite_packages(out.format = "rmd", out.dir = file.path(getwd(), "analysis"))
 ```
+
+A list of these packages is placed at the [end](#r-packages-used-in-this-project) of this document.
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -178,27 +175,123 @@ Project Link: <https://github.com/palmaraz/SaniVult>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-- base [@base]
-- workflowr [@workflowr]
-- rmarkdown [@rmarkdown]
-- checkpoint [@checkpoint]
-- coda [@coda]
-- data.table [@data.table]
-- ggmcmc [@ggmcmc]
-- ggsci [@ggsci]
-- grateful [@grateful]
-- mvtnorm [@mvtnorm]
-- pacman [@pacman]
-- patchwork [@patchwork]
-- runjags [@runjags]
-- tidyverse [@tidyverse]
-- truncnorm [@truncnorm]
-- viridis [@viridis]
-- xtable [@xtable]
-- dplyr [@dplyr]
-- ggpubr [@ggpubr]
-- plyr [@plyr]
-- readr [@readr]
-- reshape2 [@reshape2]
-- tibble [@tibble]
+# R packages used in this project
 
+-   base (R Core Team 2021)
+-   workflowr (Blischak, Carbonetto, and Stephens 2019)
+-   rmarkdown (Xie, Dervieux, and Riederer 2020)
+-   checkpoint (Ooi, de Vries, and Microsoft 2021)
+-   coda (Plummer et al. 2006)
+-   data.table (Dowle and Srinivasan 2021)
+-   ggmcmc (Fernández-i-Marín 2016)
+-   ggsci (Xiao 2018)
+-   grateful (Rodríguez-Sánchez and Hutchins 2020)
+-   mvtnorm (Genz and Bretz 2009)
+-   pacman (Rinker and Kurkiewicz 2018)
+-   patchwork (Pedersen 2020)
+-   runjags (Denwood 2016)
+-   tidyverse (Wickham et al. 2019)
+-   truncnorm (Mersmann et al. 2018)
+-   viridis (Garnier et al. 2021)
+-   xtable (Dahl et al. 2019)
+-   dplyr (Wickham et al. 2021)
+-   ggpubr (Kassambara 2020)
+-   plyr (Wickham 2011)
+-   readr (Wickham and Hester 2021)
+-   reshape2 (Wickham 2007)
+-   tibble (Müller and Wickham 2021)
+
+## References
+
+Blischak, John D, Peter Carbonetto, and Matthew Stephens. 2019.
+Creating and Sharing Reproducible Research Code the Workflowr Way
+*F1000Research* 8 (1749).
+<https://doi.org/10.12688/f1000research.20843.1>.
+
+Dahl, David B., David Scott, Charles Roosen, Arni Magnusson, and
+Jonathan Swinton. 2019. *Xtable: Export Tables to LaTeX or HTML*.
+<https://CRAN.R-project.org/package=xtable>.
+
+Denwood, Matthew J. 2016. “<span class="nocase">runjags</span>: An R
+Package Providing Interface Utilities, Model Templates, Parallel
+Computing Methods and Additional Distributions for MCMC Models in JAGS.”
+*Journal of Statistical Software* 71 (9): 1–25.
+<https://doi.org/10.18637/jss.v071.i09>.
+
+Dowle, Matt, and Arun Srinivasan. 2021. *Data.table: Extension of
+‘Data.frame‘*. <https://CRAN.R-project.org/package=data.table>.
+
+Fernández-i-Marín, Xavier. 2016. “<span class="nocase">ggmcmc</span>:
+Analysis of MCMC Samples and Bayesian Inference.” *Journal of
+Statistical Software* 70 (9): 1–20.
+<https://doi.org/10.18637/jss.v070.i09>.
+
+Garnier, Simon, Ross, Noam, Rudis, Robert, Camargo, et al. 2021. *<span
+class="nocase">viridis</span> - Colorblind-Friendly Color Maps for r*.
+<https://doi.org/10.5281/zenodo.4679424>.
+
+Genz, Alan, and Frank Bretz. 2009. *Computation of Multivariate Normal
+and t Probabilities*. Lecture Notes in Statistics. Heidelberg:
+Springer-Verlag.
+
+Kassambara, Alboukadel. 2020. *Ggpubr: ’Ggplot2’ Based Publication Ready
+Plots*. <https://CRAN.R-project.org/package=ggpubr>.
+
+Mersmann, Olaf, Heike Trautmann, Detlef Steuer, and Björn Bornkamp.
+2018. *Truncnorm: Truncated Normal Distribution*.
+<https://CRAN.R-project.org/package=truncnorm>.
+
+Müller, Kirill, and Hadley Wickham. 2021. *Tibble: Simple Data Frames*.
+<https://CRAN.R-project.org/package=tibble>.
+
+Ooi, Hong, Andrie de Vries, and Microsoft. 2021. *Checkpoint: Install
+Packages from Snapshots on the Checkpoint Server for Reproducibility*.
+<https://CRAN.R-project.org/package=checkpoint>.
+
+Pedersen, Thomas Lin. 2020. *Patchwork: The Composer of Plots*.
+<https://CRAN.R-project.org/package=patchwork>.
+
+Plummer, Martyn, Nicky Best, Kate Cowles, and Karen Vines. 2006. “CODA:
+Convergence Diagnosis and Output Analysis for MCMC.” *R News* 6 (1):
+7–11. <https://journal.r-project.org/archive/>.
+
+R Core Team. 2021. *R: A Language and Environment for Statistical
+Computing*. Vienna, Austria: R Foundation for Statistical Computing.
+<https://www.R-project.org/>.
+
+Rinker, Tyler W., and Dason Kurkiewicz. 2018. *<span
+class="nocase">pacman</span>: Package Management for R*. Buffalo, New
+York. <http://github.com/trinker/pacman>.
+
+Rodríguez-Sánchez, Francisco, and Shaurita D. Hutchins. 2020. *Grateful:
+Facilitate Citation of r Packages*.
+<https://github.com/Pakillo/grateful>.
+
+Wickham, Hadley. 2007. “Reshaping Data with the <span
+class="nocase">reshape</span> Package.” *Journal of Statistical
+Software* 21 (12): 1–20. <http://www.jstatsoft.org/v21/i12/>.
+
+———. 2011. “The Split-Apply-Combine Strategy for Data Analysis.”
+*Journal of Statistical Software* 40 (1): 1–29.
+<http://www.jstatsoft.org/v40/i01/>.
+
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy
+D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
+“Welcome to the <span class="nocase">tidyverse</span>.” *Journal of Open
+Source Software* 4 (43): 1686. <https://doi.org/10.21105/joss.01686>.
+
+Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2021.
+*Dplyr: A Grammar of Data Manipulation*.
+<https://CRAN.R-project.org/package=dplyr>.
+
+Wickham, Hadley, and Jim Hester. 2021. *Readr: Read Rectangular Text
+Data*. <https://CRAN.R-project.org/package=readr>.
+
+Xiao, Nan. 2018. *Ggsci: Scientific Journal and Sci-Fi Themed Color
+Palettes for ’Ggplot2’*. <https://CRAN.R-project.org/package=ggsci>.
+
+Xie, Yihui, Christophe Dervieux, and Emily Riederer. 2020. *R Markdown
+Cookbook*. Boca Raton, Florida: Chapman; Hall/CRC.
+<https://bookdown.org/yihui/rmarkdown-cookbook>.
+
+<p align="right">(<a href="#top">back to top</a>)</p>

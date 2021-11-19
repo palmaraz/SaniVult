@@ -396,7 +396,7 @@ fit_S4D3M = function(TimePeriod,
 
   # Model
 
-  SSSSDM_model = read.jagsfile("code/S4D3M_JAGS_model.R")
+  SSSSDM_model = read.jagsfile("code/S4D3M_JAGS_model.jags")
 
   if (!dir.exists(file.path("output",TimePeriod))) {
     dir.create(file.path("output",TimePeriod), showWarnings = TRUE, recursive = TRUE) }
@@ -622,7 +622,7 @@ fit_S4D3M = function(TimePeriod,
 
       initial_time_sim = proc.time()
 
-      SSSSDM_model = read.jagsfile("code/S4D3M_JAGS_model.R")
+      SSSSDM_model = read.jagsfile("code/S4D3M_JAGS_model.jags")
 
       # Save simulated time series:
       dat = matrix(y_ppc_mcmc_fitting[i,], nrow(data), NStages)
