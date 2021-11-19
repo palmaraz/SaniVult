@@ -1,0 +1,31 @@
+---
+title: R packages used
+bibliography: /home/pablo/Documentos/SaniVult/analysis/pkg-refs.bib
+#csl: null.csl
+---
+
+- base [@base]
+- workflowr [@workflowr]
+- rmarkdown [@rmarkdown]
+- checkpoint [@checkpoint]
+- coda [@coda]
+- data.table [@data.table]
+- ggmcmc [@ggmcmc]
+- ggsci [@ggsci]
+- grateful [@grateful]
+- mvtnorm [@mvtnorm]
+- pacman [@pacman]
+- patchwork [@patchwork]
+- runjags [@runjags]
+- tidyverse [@tidyverse]
+- truncnorm [@truncnorm]
+- viridis [@viridis]
+- xtable [@xtable]
+- dplyr [@dplyr]
+- ggpubr [@ggpubr]
+- plyr [@plyr]
+- readr [@readr]
+- reshape2 [@reshape2]
+- tibble [@tibble]
+
+## References
