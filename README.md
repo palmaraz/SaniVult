@@ -210,9 +210,7 @@ Genz, Alan, and Frank Bretz. 2009. *Computation of Multivariate Normal and t Pro
 
 Kassambara, Alboukadel. 2020. *Ggpubr: 'Ggplot2' Based Publication Ready Plots*. <https://CRAN.R-project.org/package=ggpubr>.
 
-Mersmann, Olaf, Heike Trautmann, Detlef Steuer, and Björn Bornkamp.
-
-1.  *Truncnorm: Truncated Normal Distribution*. <https://CRAN.R-project.org/package=truncnorm>.
+Mersmann, Olaf, Heike Trautmann, Detlef Steuer, and Björn Bornkamp. *Truncnorm: Truncated Normal Distribution*. <https://CRAN.R-project.org/package=truncnorm>.
 
 Müller, Kirill, and Hadley Wickham. 2021. *Tibble: Simple Data Frames*. <https://CRAN.R-project.org/package=tibble>.
 
