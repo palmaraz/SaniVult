@@ -477,8 +477,7 @@ Table of Contents
 ├── ./code
 │   ├── ./code/S4D3M_JAGS_Fitting.R
 │   ├── ./code/S4D3M_JAGS_model.jags
-│   └── ./code/utilities.R
-</code></pre>
+│   └── ./code/utilities.R</code></pre>
 <p>In this folder, the file <code>./code/utilities.R</code> contains all the functions and utilities necessary to conduct the analyses. The file <code>./code/S4D3M_JAGS_model.jags</code> contains the state-space stage-structured demographic density-dependent model (<a href="https://github.com/palmaraz/SaniVult/blob/master/code/S4D3M_JAGS_model.jags">S4D3M</a>) developed in the <a href="https://esajournals.onlinelibrary.wiley.com/journal/19395582">accompanying paper</a> written in the <a href="https://sourceforge.net/projects/mcmc-jags/">JAGS</a> language.</p>
 <p>The data folder has the following structure:</p>
 <pre class="bash"><code>├── ./data
@@ -494,21 +493,19 @@ Table of Contents
 </div>
 <div id="workflow" class="section level3">
 <h3>Workflow</h3>
-<p>You can reproduce the results of the accompanying with two methods:</p>
+<p>Note that the <a href="https://github.com/palmaraz/SaniVult/blob/master/code/S4D3M_JAGS_model.jags">S4D3M</a> is fitted through Bayesian MCMC methods using Gibbs sampling, and runs in <a href="https://sourceforge.net/projects/mcmc-jags/">JAGS</a>: even though <a href="https://sourceforge.net/projects/mcmc-jags/">JAGS</a> is written in the <a href="https://isocpp.org/">C++</a> language, the code can take several hours to run depending on the architecture used. Note that there are relatively easy ways of parallelizing this code.</p>
+<p>You can reproduce the results of the accompanying paper with three methods:</p>
 <ol style="list-style-type: decimal">
-<li><p>From within <code>R</code>, simply <code>source</code> the file <code>./code/S4D3M_JAGS_Fitting.R</code>. This will perform all the analyses of the paper in the required order. Note that the <a href="https://github.com/palmaraz/SaniVult/blob/master/code/S4D3M_JAGS_model.jags">S4D3M</a> is fitted through Bayesian MCMC methods using Gibbs sampling, and runs in <a href="https://sourceforge.net/projects/mcmc-jags/">JAGS</a>: even though <a href="https://sourceforge.net/projects/mcmc-jags/">JAGS</a> is written in the <a href="https://isocpp.org/">C++</a> language, the code can take several hours to run depending on the architecture used. Note that there are relatively easy ways of parallelizing this code.</p></li>
-<li><p>The second, easiest way to reproduce all the analyses in the project is to use the <code>Makefile</code>. With simple <a href="https://www.gnu.org/software/make/">GNU Make</a> syntax, you can reproduce all the project, from statistical analyses to manuscript production. For exampole, in <a href="https://www.gnu.org/">GNU/Linux</a> based systems, you can point with the command shell to the project folder and run the following command:</p>
-<pre class="sh"><code>make all</code></pre></li>
-</ol>
-<p>This command will perform the following:</p>
-<ol style="list-style-type: decimal">
-<li><p>It will conduct all the statistical analyses in the project, and produce all the figures.</p></li>
-<li><p>It will assemble and compile the manuscript and associated supplementary materials with the necessary figures, and open the files.</p></li>
-</ol>
+<li><p>The first, easiest way to reproduce all the analyses in the project is to use the <code>Makefile</code>. With simple <a href="https://www.gnu.org/software/make/">GNU Make</a> syntax, you can reproduce all the project, from statistical analyses to manuscript production. For exampole, in <a href="https://www.gnu.org/">GNU/Linux</a> based systems, you can point with the command shell to the project folder and run the following command:</p>
+<pre class="sh"><code>make all</code></pre>
+<p>This command will first conduct all the statistical analyses in the project, and produce all the figures. It then will assemble and compile the manuscript and associated supplementary materials with the necessary figures. Finally, it will open the files.</p></li>
+<li><p>From within <code>R</code>, simply <code>source</code> the file <code>./code/S4D3M_JAGS_Fitting.R</code>. This will perform all the analyses of the paper in the required order.</p></li>
+<li><p>The final method is to open the R Markdown file <code>./analysis/index.Rmd</code> to interactively execute the workflow.</p>
 <p align="right">
-(<a href="#top">back to top</a>)
+<p>(<a href="#top">back to top</a>)</p>
 </p>
-<!-- ROADMAP -->
+<!-- ROADMAP --></li>
+</ol>
 </div>
 </div>
 <div id="roadmap" class="section level2">
@@ -516,6 +513,8 @@ Table of Contents
 <ul class="task-list">
 <li><p><input type="checkbox" disabled></input>
 Add links to the final files and web addresses.</p></li>
+<li><p><input type="checkbox" disabled></input>
+Obtain the DOIs.</p></li>
 <li><p><input type="checkbox" disabled checked></input>
 Add back to top links</p></li>
 </ul>
@@ -574,25 +573,28 @@ Add back to top links</p></li>
 <p>Blischak, John D, Peter Carbonetto, and Matthew Stephens. 2019. Creating and Sharing Reproducible Research Code the Workflowr Way <em>F1000Research</em> 8 (1749). <a href="https://doi.org/10.12688/f1000research.20843.1" class="uri">https://doi.org/10.12688/f1000research.20843.1</a>.</p>
 <p>Dahl, David B., David Scott, Charles Roosen, Arni Magnusson, and Jonathan Swinton. 2019. <em>Xtable: Export Tables to LaTeX or HTML</em>. <a href="https://CRAN.R-project.org/package=xtable" class="uri">https://CRAN.R-project.org/package=xtable</a>.</p>
 <p>Denwood, Matthew J. 2016. “<span class="nocase">runjags</span>: An R Package Providing Interface Utilities, Model Templates, Parallel Computing Methods and Additional Distributions for MCMC Models in JAGS.” <em>Journal of Statistical Software</em> 71 (9): 1–25. <a href="https://doi.org/10.18637/jss.v071.i09" class="uri">https://doi.org/10.18637/jss.v071.i09</a>.</p>
-<p>Dowle, Matt, and Arun Srinivasan. 2021. <em>Data.table: Extension of ’Data.frame‘</em>. <a href="https://CRAN.R-project.org/package=data.table" class="uri">https://CRAN.R-project.org/package=data.table</a>.</p>
+<p>Dowle, Matt, and Arun Srinivasan. 2021. <em>Data.table: Extension of ‘Data.frame’</em>. <a href="https://CRAN.R-project.org/package=data.table" class="uri">https://CRAN.R-project.org/package=data.table</a>.</p>
 <p>Fernández-i-Marín, Xavier. 2016. “<span class="nocase">ggmcmc</span>: Analysis of MCMC Samples and Bayesian Inference.” <em>Journal of Statistical Software</em> 70 (9): 1–20. <a href="https://doi.org/10.18637/jss.v070.i09" class="uri">https://doi.org/10.18637/jss.v070.i09</a>.</p>
-<p>Garnier, Simon, Ross, Noam, Rudis, Robert, Camargo, et al. 2021. <em><span class="nocase">viridis</span> - Colorblind-Friendly Color Maps for r</em>. <a href="https://doi.org/10.5281/zenodo.4679424" class="uri">https://doi.org/10.5281/zenodo.4679424</a>.</p>
+<p>Garnier, Simon, Ross, Noam, Rudis, Robert, Camargo, et al. 2021. <span class="nocase">viridis</span> - Colorblind-Friendly Color Maps for r. <a href="https://doi.org/10.5281/zenodo.4679424" class="uri">https://doi.org/10.5281/zenodo.4679424</a>.</p>
 <p>Genz, Alan, and Frank Bretz. 2009. <em>Computation of Multivariate Normal and t Probabilities</em>. Lecture Notes in Statistics. Heidelberg: Springer-Verlag.</p>
-<p>Kassambara, Alboukadel. 2020. <em>Ggpubr: ’Ggplot2’ Based Publication Ready Plots</em>. <a href="https://CRAN.R-project.org/package=ggpubr" class="uri">https://CRAN.R-project.org/package=ggpubr</a>.</p>
-<p>Mersmann, Olaf, Heike Trautmann, Detlef Steuer, and Björn Bornkamp. 2018. <em>Truncnorm: Truncated Normal Distribution</em>. <a href="https://CRAN.R-project.org/package=truncnorm" class="uri">https://CRAN.R-project.org/package=truncnorm</a>.</p>
+<p>Kassambara, Alboukadel. 2020. <em>Ggpubr: ‘Ggplot2’ Based Publication Ready Plots</em>. <a href="https://CRAN.R-project.org/package=ggpubr" class="uri">https://CRAN.R-project.org/package=ggpubr</a>.</p>
+<p>Mersmann, Olaf, Heike Trautmann, Detlef Steuer, and Björn Bornkamp.</p>
+<ol style="list-style-type: decimal">
+<li><em>Truncnorm: Truncated Normal Distribution</em>. <a href="https://CRAN.R-project.org/package=truncnorm" class="uri">https://CRAN.R-project.org/package=truncnorm</a>.</li>
+</ol>
 <p>Müller, Kirill, and Hadley Wickham. 2021. <em>Tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble" class="uri">https://CRAN.R-project.org/package=tibble</a>.</p>
 <p>Ooi, Hong, Andrie de Vries, and Microsoft. 2021. <em>Checkpoint: Install Packages from Snapshots on the Checkpoint Server for Reproducibility</em>. <a href="https://CRAN.R-project.org/package=checkpoint" class="uri">https://CRAN.R-project.org/package=checkpoint</a>.</p>
 <p>Pedersen, Thomas Lin. 2020. <em>Patchwork: The Composer of Plots</em>. <a href="https://CRAN.R-project.org/package=patchwork" class="uri">https://CRAN.R-project.org/package=patchwork</a>.</p>
 <p>Plummer, Martyn, Nicky Best, Kate Cowles, and Karen Vines. 2006. “CODA: Convergence Diagnosis and Output Analysis for MCMC.” <em>R News</em> 6 (1): 7–11. <a href="https://journal.r-project.org/archive/" class="uri">https://journal.r-project.org/archive/</a>.</p>
 <p>R Core Team. 2021. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
-<p>Rinker, Tyler W., and Dason Kurkiewicz. 2018. <em><span class="nocase">pacman</span>: Package Management for R</em>. Buffalo, New York. <a href="http://github.com/trinker/pacman" class="uri">http://github.com/trinker/pacman</a>.</p>
+<p>Rinker, Tyler W., and Dason Kurkiewicz. 2018. <span class="nocase">pacman</span>: Package Management for R. Buffalo, New York. <a href="http://github.com/trinker/pacman" class="uri">http://github.com/trinker/pacman</a>.</p>
 <p>Rodríguez-Sánchez, Francisco, and Shaurita D. Hutchins. 2020. <em>Grateful: Facilitate Citation of r Packages</em>. <a href="https://github.com/Pakillo/grateful" class="uri">https://github.com/Pakillo/grateful</a>.</p>
 <p>Wickham, Hadley. 2007. “Reshaping Data with the <span class="nocase">reshape</span> Package.” <em>Journal of Statistical Software</em> 21 (12): 1–20. <a href="http://www.jstatsoft.org/v21/i12/" class="uri">http://www.jstatsoft.org/v21/i12/</a>.</p>
 <p>———. 2011. “The Split-Apply-Combine Strategy for Data Analysis.” <em>Journal of Statistical Software</em> 40 (1): 1–29. <a href="http://www.jstatsoft.org/v40/i01/" class="uri">http://www.jstatsoft.org/v40/i01/</a>.</p>
 <p>Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. “Welcome to the <span class="nocase">tidyverse</span>.” <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686" class="uri">https://doi.org/10.21105/joss.01686</a>.</p>
 <p>Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2021. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a>.</p>
 <p>Wickham, Hadley, and Jim Hester. 2021. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr" class="uri">https://CRAN.R-project.org/package=readr</a>.</p>
-<p>Xiao, Nan. 2018. <em>Ggsci: Scientific Journal and Sci-Fi Themed Color Palettes for ’Ggplot2’</em>. <a href="https://CRAN.R-project.org/package=ggsci" class="uri">https://CRAN.R-project.org/package=ggsci</a>.</p>
+<p>Xiao, Nan. 2018. <em>Ggsci: Scientific Journal and Sci-Fi Themed Color Palettes for ‘Ggplot2’</em>. <a href="https://CRAN.R-project.org/package=ggsci" class="uri">https://CRAN.R-project.org/package=ggsci</a>.</p>
 <p>Xie, Yihui, Christophe Dervieux, and Emily Riederer. 2020. <em>R Markdown Cookbook</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown-cookbook" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook</a>.</p>
 <p align="right">
 (<a href="#top">back to top</a>)
