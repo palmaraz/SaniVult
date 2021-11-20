@@ -98,13 +98,36 @@ This section shows how to reproduce the results of the accompanying paper. The f
 
 In this folder, the file `./code/utilities.R` contains all the functions and utilities necessary to conduct the analyses. The file `./code/S4D3M_JAGS_model.jags` contains the state-space stage-structured demographic density-dependent model ([S4D3M](https://github.com/palmaraz/SaniVult/blob/master/code/S4D3M_JAGS_model.jags)) developed in the [accompanying paper](https://esajournals.onlinelibrary.wiley.com/journal/19395582) written in the [JAGS](https://sourceforge.net/projects/mcmc-jags/) language.
 
-The data folder has the following structure:
+The [data](https://github.com/palmaraz/SaniVult/tree/master/data) folder has the following structure:
 
 ``` bash
 ├── ./data
 │   ├── ./data/Breeding_output.csv
 │   ├── ./data/BSE_cases.csv
 │   └── ./data/data.csv
+```
+
+The [manuscript](https://github.com/palmaraz/SaniVult/tree/master/ms) folder has the following structure:
+
+``` bash
+├── ms
+│   ├── appendix.pdf
+│   ├── appendix.tex
+│   ├── arxiv.sty
+│   ├── biblio.bib
+│   ├── DataS1.zip
+│   ├── figs
+│   │   ├── Fig1.pdf
+│   │   ├── Fig2.pdf
+│   │   ├── Fig3.pdf
+│   │   ├── Fig4.pdf
+│   │   ├── FigS1.pdf
+│   │   ├── FigS3.pdf
+│   │   └── FigS4.pdf
+│   ├── main_text.pdf
+│   ├── main_text.tex
+│   ├── MetadataS1.docx
+│   └── MetadataS1.pdf
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
