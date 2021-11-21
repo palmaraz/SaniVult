@@ -702,6 +702,9 @@ fit_S4D3M = function(TimePeriod,
                               variable.name = "Stage",
                               value.name="Mean")
 
+  # A colorblind-friendly palette, from http://www.cookbook-r.com/Graphs/Colors_(ggplot2)
+  cbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
   plotTS = SimTS_full  %>%
     group_by(Stage,Year) %>%
     summarise(LCI_90 = quantile(Mean,  probs = 0.025),
@@ -710,11 +713,11 @@ fit_S4D3M = function(TimePeriod,
     bind_cols(.,as_tibble(Observed[,c("Observed")])) %>%
     ggplot(., aes(x=Year,y=Mean, colour=Stage)) +
     geom_line(aes(x=Year, y = Mean, group = Stage), size=0.4) +
-    geom_ribbon(aes(ymin = LCI_90, ymax = HCI_90, fill=Stage), alpha = 0.2, linetype=0) +
+    geom_ribbon(aes(ymin = LCI_90, ymax = HCI_90, fill=Stage), alpha = 0.5, linetype=0) +
     geom_point(aes(x=Year, y=value, col = Stage), size=2) +
     scale_y_continuous(limits = c(0,750)) +
-    scale_color_startrek() +
-    scale_fill_startrek() +
+    scale_colour_manual(values=cbPalette) +
+    scale_fill_manual(values=cbPalette) +
     theme_classic() +
     theme(axis.text=element_text(size=15),
           axis.title=element_text(size=15),
@@ -758,8 +761,8 @@ fit_S4D3M = function(TimePeriod,
     geom_point(size=0.7) +
     scale_x_continuous(limits = c(0,1.05)) +
     scale_y_continuous(limits = c(0,1.05)) +
-    scale_color_viridis(discrete = TRUE, option = "D") +
-    scale_fill_viridis(discrete = TRUE) +
+    scale_colour_manual(values=c("#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")) +
+    scale_fill_manual(values=c("#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")) +
     theme_bw() +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank(),
@@ -808,6 +811,8 @@ fit_S4D3M = function(TimePeriod,
 
 Figures = function(){
 
+  # A colorblind-friendly palette, from http://www.cookbook-r.com/Graphs/Colors_(ggplot2)
+  cbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
   # Plot Fig. 1 ####
 
@@ -825,14 +830,14 @@ Figures = function(){
     geom_ribbon(aes(ymax = Upper95, ymin = Lower95, fill = Stage), alpha = 0.5, linetype=0) +
     geom_line(aes(x=Year, y = data_ts_raw$Estimated, group = Stage), size=0.6) +
     geom_point(aes(x=Year, y=Observed, col = Stage), size=1.5) +
-    geom_line(aes(x=Year, y = data_ts_raw$`BSE cases`*scaleFactor), size=1, colour="orange") +
+    geom_line(aes(x=Year, y = data_ts_raw$`BSE cases`*scaleFactor), size=1, colour="#009E73") +
     scale_x_continuous(limits = c(1980,2020)) +
     scale_y_continuous(sec.axis = sec_axis(~./scaleFactor, name = "BSE cases")) +
-    scale_color_startrek() +
-    scale_fill_startrek() +
+    scale_colour_manual(values=cbPalette) +
+    scale_fill_manual(values=cbPalette) +
     theme_classic() +
-    theme(axis.line.y.right = element_line(color = "orange"),
-          axis.ticks.y.right = element_line(color = "orange"),
+    theme(axis.line.y.right = element_line(color = "#009E73"),
+          axis.ticks.y.right = element_line(color = "#009E73"),
           axis.text=element_text(size=15),
           axis.title=element_text(size=17),
           plot.title = element_text(size=17),
@@ -846,8 +851,8 @@ Figures = function(){
     geom_point(aes(x=Year, y=Breeding_output$`Breeding pairs (%)`, col = Stage), size=2) +
     scale_x_continuous(limits=c(1980,2020)) +
     scale_y_continuous(limits=c(0,100)) +
-    scale_color_uchicago() +
-    scale_fill_uchicago() +
+    scale_colour_manual(values=c("#F0E442", "#0072B2", "#D55E00")) +
+    scale_fill_manual(values=c("#F0E442", "#0072B2", "#D55E00")) +
     theme_classic() +
     labs(title="B)", x="Year", y="Breeding pairs (%)") +
     theme(axis.text=element_text(size=15),
@@ -869,8 +874,8 @@ Figures = function(){
     geom_line(aes(x=Year, y = Breeding_output$`Mean laying date`, group = Stage), size=1) +
     geom_point(aes(x=Year, y=Breeding_output$`Mean laying date`, col = Stage), size=2) +
     scale_x_continuous(limits=c(1980,2020)) +
-    scale_color_uchicago() +
-    scale_fill_uchicago() +
+    scale_colour_manual(values=c("#F0E442", "#0072B2", "#D55E00")) +
+    scale_fill_manual(values=c("#F0E442", "#0072B2", "#D55E00")) +
     theme_classic() +
     theme(axis.text=element_text(size=15),
           axis.title=element_text(size=17),
@@ -885,8 +890,8 @@ Figures = function(){
     geom_point(aes(x=Year, y=Breeding_output$`Breeding success`, col = Stage), size=2) +
     scale_x_continuous(limits=c(1980,2020)) +
     scale_y_continuous(limits=c(0,1)) +
-    scale_color_uchicago() +
-    scale_fill_uchicago() +
+    scale_colour_manual(values=c("#F0E442", "#0072B2", "#D55E00")) +
+    scale_fill_manual(values=c("#F0E442", "#0072B2", "#D55E00")) +
     theme_classic() +
     theme(axis.text=element_text(size=15),
           axis.title=element_text(size=17),
