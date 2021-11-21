@@ -142,13 +142,13 @@ Note that the [S4D3M](https://github.com/palmaraz/SaniVult/blob/master/code/S4D3
 
 You can reproduce the results of the accompanying paper with three methods:
 
-1.  The first, easiest way to reproduce all the analyses in the project is to use the `Makefile`. With simple [GNU Make](https://www.gnu.org/software/make/) syntax, you can reproduce all the project, from statistical analyses to manuscript production. For exampole, in [GNU/Linux](https://www.gnu.org/) based systems, you can point with the command shell to the project folder and run the following command:
+1.  The first, easiest way to reproduce all the analyses in the project is to use the `Makefile`. With simple [GNU Make](https://www.gnu.org/software/make/) syntax, you can reproduce all the project, from statistical analyses to manuscript production. For example, in [GNU/Linux](https://www.gnu.org/) based systems, you can point with the command shell to the project folder and run the following command:
 
     ``` sh
     make all
     ```
 
-    This command will first conduct all the statistical analyses in the project, and produce all the figures. It then will assemble and compile the manuscript and associated supplementary materials with the necessary figures. Finally, it will open the files.
+    This command will first conduct all the statistical analyses in the project, and produce all the figures. It then will assemble and compile the manuscript and associated supplementary materials with the necessary figures. Finally, it will open the files. Alternatively, note that you can run this command within [RStudio](https://www.rstudio.com/) from the Terminal tab. 
 
 2.  From within `R`, simply `source` the file `./code/S4D3M_JAGS_Fitting.R`. This will perform all the analyses of the paper in the required order.
 
