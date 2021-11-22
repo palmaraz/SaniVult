@@ -28,7 +28,7 @@ This is the GitHub hosting of the project [SaniVult](https://github.com/palmaraz
 
 This project was conducted by:
 
-· [Pablo Almaraz](https://palmaraz.github.io/) (see [contact](#contact) below), which participated in study conception, designed and conducted the analyses, and led manuscript writing.
+· [Pablo Almaraz](https://scholar.google.es/citations?user=GDFS1v0AAAAJ&hl) (see [contact](#contact) below), which participated in study conception, designed and conducted the analyses, and led manuscript writing.
 
 · [Guillermo Blanco](https://www.mncn.csic.es/es/quienes_somos/blanco-hervas-guillermo), which led and conceived the study, conducted the field surveys and participated in manuscript writing.
 
