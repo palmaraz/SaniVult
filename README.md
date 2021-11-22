@@ -6,6 +6,10 @@
 
 <br />
 
+[![DOI](https://zenodo.org/badge/429053003.svg)](https://zenodo.org/badge/latestdoi/429053003)
+
+<br />
+
 # The SaniVult project
 
 <br />
