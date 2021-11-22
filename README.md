@@ -2,11 +2,7 @@
 
 <br />
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/palmaraz/SaniVult/blob/master/LICENSE)
-
-<br />
-
-[![DOI](https://zenodo.org/badge/429053003.svg)](https://zenodo.org/badge/latestdoi/429053003)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/palmaraz/SaniVult/blob/master/LICENSE) [![DOI](https://zenodo.org/badge/429053003.svg)](https://zenodo.org/badge/latestdoi/429053003)
 
 <br />
 
