@@ -6,7 +6,7 @@
 \usepackage{pdflscape}
 \usepackage{subfig}
 \usepackage[backend=biber]{biblatex}
-\addbibresource{biblio.bib}
+\addbibresource{biblio_supmat.bib}
 \usepackage[
 colorlinks,
 citecolor=blue,
@@ -25,6 +25,7 @@ hypertexnames=true
 \usepackage{microtype}      % microtypography
 \usepackage{setspace}
 
+\renewcommand{\theequation}{S\arabic{equation}}
 % Stuff for the table
 \usepackage{array, booktabs, caption, pdflscape, makecell, siunitx, multirow, caption}
 \renewcommand\theadfont{\bfseries}
@@ -130,11 +131,11 @@ hypertexnames=true
 
 \large{\textbf{Supporting Information}. Almaraz, P., Martínez, F., Morales-Reyes, Z., Sánchez-Zapata, J. A., Blanco, G. 2021. Long-term demographic dynamics of a keystone scavenger disrupted by human-induced shifts in food availability. Ecological Applications.}
 
-\vspace{0.7in}
+\vspace{0.1in}
 
 %\maketitle
 
-\tableofcontents
+%\tableofcontents
 %\counterwithin{figure}{section}
 
 %\newpage
@@ -275,9 +276,9 @@ The transient rate of increase of a stage-structured population growing accordin
 
 Analytically it is relatively straightforward to estimate the population at equilibrium, $N^*$, from the demographic model in eqns. \ref{FullModel}-\ref{InitStat}. However, we take advantage of the inverse state-space Bayesian approach and calculate $N^*$ numerically: we preliminary fitted the S4D3M to the stage-structured time series for each period, and then simulated the fitted model for an additional 200-year period into the future until the population stabilized. The equilibrium population size $N^*$ for each time period is then the posterior simulated distribution for the total population size after stabilization. These simulated posteriors are shown in Figure \ref{fig:Neqs}.\\
 
-The posterior distributions of the asymptotic rates of increase ($\lambda_{s}$) of the stage-structured populations evaluated at the equilibrium $N^*$ are shown in the accompanying paper. Interestingly, in spite of the impact of different sources of observational and process stochasticity on the dynamics, the distributions are centered around 1, which suggests that the stage-structured Eurasian Griffon vulture population is stabilized in the long-term. \\
+The posterior distributions of the asymptotic rates of increase ($\lambda_{s}$) of the stage-structured populations evaluated at the equilibrium $N^*$ are shown in Figure 3 of the accompanying paper. Interestingly, in spite of the impact of different sources of observational and process stochasticity on the dynamics, the distributions are centered around 1, which suggests that the stage-structured Eurasian Griffon vulture population is stabilized in the long-term. \\
 
-Finally, it is interesting to evaluate the dynamical stability (stability in the Liapunov's sense, \cite{Elaydi2005}) of the S4D3M evaluated at the equilibrium $N^*$. Under some assumptions (see \cite{Caswell2001,Elaydi2005}) it is possible to use a version of the S4D3M linearized around the equilibrium $N^*$ to inform about the local, linear stability of the dynamics at this point. This is achieved through the construction of the Jacobian matrix, which is the first term of a Taylor expansion of an analytical function around a given point. It is constructed by finding the partial derivatives of all the functions in the model to the state variables (see \cite{Caswell2001} and \cite{Otto2011} for a gentle introduction). In our case, the Jacobian matrix is derived by Taylor-expanding the Lefkovitch matrix in eqn. \ref{FullModel} around the equilibrium population size $N^*$. The Jacobian matrix (\textbf{J}) can then be written as
+Finally, it is interesting to evaluate the dynamical stability (stability in the Liapunov's sense, \cite{Elaydi2005}) of the S4D3M evaluated at the equilibrium $N^*$. Under some assumptions (see \cite{Caswell2001,Elaydi2005}) it is possible to use a version of the S4D3M linearized around the equilibrium $N^*$ to inform about the local, linear stability of the dynamics at this point. This is achieved through the construction of the Jacobian matrix, which is obtained by finding the partial derivatives of all the functions in the model to the state variables (see \cite{Caswell2001} and \cite{Otto2011} for a gentle introduction). In our case, the Jacobian matrix is derived by Taylor-expanding the Lefkovitch matrix in eqn. \ref{FullModel} around the equilibrium population size $N^*$. The Jacobian matrix (\textbf{J}) can then be written as
 
 \vspace{0.2in}
 
