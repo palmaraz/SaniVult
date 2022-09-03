@@ -22,7 +22,7 @@
 
 ## About
 
-This is the GitHub hosting of the project [SaniVult](https://github.com/palmaraz/SaniVult). The paper associated to the project is published in the journal [Ecological Applications](https://esajournals.onlinelibrary.wiley.com/journal/19395582). See the `CITATION` file for a BibTex entry to the article. This folder contains the files needed to reproduce all the results of the project, and compile the manuscript of the associated paper.
+This is the GitHub hosting of the project [SaniVult](https://github.com/palmaraz/SaniVult). The paper associated to the project is published in the journal [Ecological Applications](https://esajournals.onlinelibrary.wiley.com/doi/10.1002/eap.2579). See the `CITATION` file for a BibTex entry to the article. This folder contains the files needed to reproduce all the results of the project, and compile the manuscript of the associated paper.
 
 ### CRediT authorship
 
@@ -38,7 +38,7 @@ This project was conducted by:
 
 · [José A. Sánchez Zapata](https://scholar.google.es/citations?user=GqacT-wAAAAJ&hl=es&oi=ao), which contributed ideas and participated in manuscript writing.
 
-The major goal of the project is to evaluate the impacts of the outbreak of a [Bovine Spongiform Encephalopathy](https://www.efsa.europa.eu/en/topics/topic/bovine-spongiform-encephalopathy-bse) epidemic in Europe on the demographic and population dynamics of one of the world's largest colonies of the [Eurasian Griffon vulture](http://datazone.birdlife.org/species/factsheet/griffon-vulture-gyps-fulvus) (*Gyps fulvus*). The Eurasian Griffon vulture is a keystone scavenger providing fundamental ecosystem services worldwide. For further details, see the [abstract](#abstract) below and the file `ms/main_text.pdf`. Read the [published version of the paper](https://esajournals.onlinelibrary.wiley.com/journal/19395582).
+The major goal of the project is to evaluate the impacts of the outbreak of a [Bovine Spongiform Encephalopathy](https://www.efsa.europa.eu/en/topics/topic/bovine-spongiform-encephalopathy-bse) epidemic in Europe on the demographic and population dynamics of one of the world's largest colonies of the [Eurasian Griffon vulture](http://datazone.birdlife.org/species/factsheet/griffon-vulture-gyps-fulvus) (*Gyps fulvus*). The Eurasian Griffon vulture is a keystone scavenger providing fundamental ecosystem services worldwide. For further details, see the [abstract](#abstract) below and the file `ms/main_text.pdf`. Read the [published version of the paper](https://esajournals.onlinelibrary.wiley.com/doi/10.1002/eap.2579).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -60,7 +60,7 @@ Scavenging is a key ecological process controlling energy flow in ecosystems and
 
 ### Built With
 
-This is a [workflowr](https://jdblischak.github.io/workflowr/) project bootstraped by a suite of open-source tools.
+This is a [workflowr](https://workflowr.github.io/workflowr/) project bootstraped by a suite of open-source tools.
 
 -   [GNU/Linux](https://www.gnu.org/)
 -   [ubuntu Budgie](https://ubuntubudgie.org/)
@@ -96,7 +96,7 @@ This section shows how to reproduce the results of the accompanying paper. The f
 │   └── ./code/utilities.R
 ```
 
-In this folder, the file `./code/utilities.R` contains all the functions and utilities necessary to conduct the analyses. The file `./code/S4D3M_JAGS_model.jags` contains the state-space stage-structured demographic density-dependent model ([S4D3M](https://github.com/palmaraz/SaniVult/blob/master/code/S4D3M_JAGS_model.jags)) developed in the [accompanying paper](https://esajournals.onlinelibrary.wiley.com/journal/19395582) written in the [JAGS](https://sourceforge.net/projects/mcmc-jags/) language.
+In this folder, the file `./code/utilities.R` contains all the functions and utilities necessary to conduct the analyses. The file `./code/S4D3M_JAGS_model.jags` contains the state-space stage-structured demographic density-dependent model ([S4D3M](https://github.com/palmaraz/SaniVult/blob/master/code/S4D3M_JAGS_model.jags)) developed in the [accompanying paper](https://esajournals.onlinelibrary.wiley.com/doi/10.1002/eap.2579) written in the [JAGS](https://sourceforge.net/projects/mcmc-jags/) language.
 
 The [data](https://github.com/palmaraz/SaniVult/tree/master/data) folder has the following structure:
 
@@ -158,13 +158,13 @@ You can reproduce the results of the accompanying paper with three methods:
 
     <!-- ROADMAP -->
 
-## Roadmap
+<!-- ## Roadmap -->
 
--   [ ] Add links to the final files and web addresses.
+<!-- -   [x] Add links to the final files and web addresses. -->
 
--   [ ] Obtain the DOIs.
+<!-- -   [x] Obtain the DOIs. -->
 
--   [x] Add back to top links
+<!-- -   [x] Add back to top links -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
