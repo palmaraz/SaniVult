@@ -11,9 +11,9 @@
 
 
 
-<title>Reproducible workflow</title>
+<title>Home</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.29.1/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -29,16 +29,13 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 
-<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
 <style type="text/css">
 div.section {
@@ -75,6 +72,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -95,6 +93,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -152,11 +153,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -185,8 +190,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -194,16 +199,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -233,69 +231,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -305,22 +240,12 @@ div.tocify {
 <div class="container-fluid main-container">
 
 
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
-
-
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -331,6 +256,9 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li>
   <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Reproduce.html">Reproduce</a>
 </li>
 <li>
   <a href="refs.html">R packages used</a>
@@ -347,6 +275,13 @@ div.tocify {
     Source code
   </a>
 </li>
+<li>
+  <a href="https://doi.org/10.5281/zenodo.5718953">
+    <span class="fas fa-z"></span>
+     
+    Source code
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -356,14 +291,16 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Reproducible workflow</h1>
+<h1 class="title toc-ignore">Home</h1>
 
 </div>
 
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -372,7 +309,9 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -381,17 +320,27 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-11-19
+<strong>Last updated:</strong> 2025-05-25
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 0
 </p>
 <p>
-<strong>Knit directory:</strong> <code>SaniVult/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+<strong>Knit directory:</strong> <code>SaniVult/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
 </p>
 <p>
-This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
-  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.1). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
 </p>
 <hr>
 </div>
@@ -400,91 +349,54 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate"
+class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcompalmarazSaniVulttreea6c7740b48945b2c1458e36d0e7c8ce8b46017cdtargetblanka6c7740a">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/palmaraz/SaniVult/tree/a6c7740b48945b2c1458e36d0e7c8ce8b46017cd" target="_blank">a6c7740</a>
+</a>
 </p>
 </div>
-<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed666code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(666)</code> </a>
-</p>
-</div>
-<div id="strongSeedstrongcodesetseed666code" class="panel-collapse collapse">
-<div class="panel-body">
-<p>The command <code>set.seed(666)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
-</p>
-</div>
-<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
-</p>
-</div>
-<div id="strongCachestrongnone" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
-</p>
-</div>
-<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcompalmarazSaniVulttree914db7faf0f738f9d195e62a64530b58b66d496ctargetblank914db7fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/palmaraz/SaniVult/tree/914db7faf0f738f9d195e62a64530b58b66d496c" target="_blank">914db7f</a> </a>
-</p>
-</div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcompalmarazSaniVulttree914db7faf0f738f9d195e62a64530b58b66d496ctargetblank914db7fa" class="panel-collapse collapse">
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcompalmarazSaniVulttreea6c7740b48945b2c1458e36d0e7c8ce8b46017cdtargetblanka6c7740a"
+class="panel-collapse collapse">
 <div class="panel-body">
 <p>
-Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/palmaraz/SaniVult/tree/914db7faf0f738f9d195e62a64530b58b66d496c" target="_blank">914db7f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version
+<a href="https://github.com/palmaraz/SaniVult/tree/a6c7740b48945b2c1458e36d0e7c8ce8b46017cd" target="_blank">a6c7740</a>.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
 </p>
 <p>
-Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
 </p>
 <pre><code>
 Ignored files:
@@ -492,17 +404,19 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  README.html
-    Untracked:  code/utilities.R
+    Untracked:  Almaraz et al. 2022 Ecol. Appl.pdf
 
 Unstaged changes:
-    Modified:   README.md
-    Modified:   code/S4D3M_JAGS_Fitting.R
-    Deleted:    code/utilities.r
+    Modified:   README.html
+    Modified:   SaniVult.Rproj
+    Modified:   analysis/_site.yml
+    Modified:   ms/biblio.bib
 
 </code></pre>
 <p>
-Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
 </p>
 </div>
 </div>
@@ -511,9 +425,12 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
-
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/index.Rmd</code>) and HTML (<code>docs/index.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/index.Rmd</code>) and HTML
+(<code>docs/index.html</code>) files. If you’ve configured a remote Git
+repository (see <code>?wflow_git_remote</code>), click on the hyperlinks
+in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -537,6 +454,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/palmaraz/SaniVult/blob/a6c7740b48945b2c1458e36d0e7c8ce8b46017cd/analysis/index.Rmd" target="_blank">a6c7740</a>
+</td>
+<td>
+Pablo Almaraz
+</td>
+<td>
+2025-05-25
+</td>
+<td>
+Update my new project
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/palmaraz/SaniVult/f802182882dc81566984600721715c5ce36f2c66/docs/index.html" target="_blank">f802182</a>
+</td>
+<td>
+Pablo Almaraz
+</td>
+<td>
+2021-11-19
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -714,126 +665,66 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
-<p>Please look the <code>README</code> file for further details on reproducing the results of this project. Note that the following chunks are supposed to run sequentially.</p>
-</div>
-<div id="load-libraries" class="section level2">
-<h2>Load libraries</h2>
-<p>Check that the <a href="https://github.com/trinker/pacman">pacman</a> package is installed. Alternatively, note that you can use the <a href="https://github.com/RevolutionAnalytics/checkpoint">checkpoint</a> package to build an environment identical to the date of completion of the present project. Look at the <code>Session information</code> tab below. After <a href="https://github.com/trinker/pacman">pacman</a> is installed, the <code>p_load</code> function will check that the selected packages are installed. If they are, it will load them; if not, it will first install them and then load them.</p>
-<pre class="r"><code># if (!require(checkpoint)) install.packages(&#39;checkpoint&#39;)
-# checkpoint::checkpoint(&quot;2021-11-18&quot;)
-
-if (!require(pacman)) install.packages(&#39;pacman&#39;)</code></pre>
-<pre><code>Loading required package: pacman</code></pre>
-<pre class="r"><code>pacman::p_load(tidyverse,runjags,coda,ggmcmc,xtable,data.table,viridis,ggsci,patchwork,mvtnorm,truncnorm,grateful)</code></pre>
-</div>
-<div id="load-utilities-and-functions" class="section level2">
-<h2>Load utilities and functions</h2>
-<pre class="r"><code>source(&quot;code/utilities.R&quot;)</code></pre>
-</div>
-<div id="conduct-the-analyes" class="section level2">
-<h2>Conduct the analyes</h2>
-<p>This will run the analyses in an order temporal sequence.</p>
-<pre class="r"><code># All periods ####
-
-for(TimePeriod in c(&quot;PreBSE&quot;,&quot;BSE&quot;,&quot;PostBSE&quot;)){
-
-  # Loada data: ####
-  load_data(TimePeriod)
-
-  # Find the equilibrium population and the variance of state variables: ####
-  find_equilibrium_population(TimePeriod,
-                              adapt = 10000,
-                              burnin = 100000,
-                              sample = 1000,
-                              thin = 100)
-
-  # Fit the SSSSDDDM: ####
-  fit_S4D3M(TimePeriod,
-               n.chains = 3,
-               adapt = 10000,
-               burnin = 500000,
-               sample = 1000,
-               thin = 500,
-               mcmc_diagnostics_plots = TRUE,
-               PPC_simulations = TRUE,
-               N_PPC_Fits = 100,
-               burnin_ppc = 100000,
-               sample_ppc = 1000,
-               thin_ppc = 100)
-
-  }</code></pre>
-</div>
-<div id="produce-the-figures" class="section level2">
-<h2>Produce the figures</h2>
-<p>The call to this function will produce all the figures in the paper</p>
-<pre class="r"><code>Figures()</code></pre>
-</div>
-<div id="compile-the-manuscript" class="section level2">
-<h2>Compile the manuscript</h2>
-<p>Once the analyses are completed and the figures produced, this shell call to the <code>Makefile</code> will compile and open the manuscript and related supplementary material:</p>
-<pre class="bash"><code>make compile</code></pre>
-<br>
-<p>
-<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
-<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
-</button>
+<p><br /></p>
+<p><span style="font-size: 21px;">This is the Sanivult project
+repository, evaluating the impacts of the outbreak of a Bovine
+Spongiform Encephalopathy epidemic in Europe on the demographic and
+population dynamics of one of the world’s largest colonies of the
+Eurasian Griffon vulture (<em>Gyps fulvus</em>). </span></p>
+<p><br /></p>
+<p align="center">
+<a href="https://github.com/palmaraz/SaniVult">
+<img src="../docs/imgs/Mario_Modesto_Mata_CC_BY-SA_(Gyps_fulvus).jpg" width="450" title="Attribution: Mario Modesto Mata / CC BY-SA (https://creativecommons.org/licenses/by-sa/3.0) Source: https://commons.wikimedia.org/wiki/File:Buitres_leonados_(Gyps_fulvus)_0.jpg">
+</a>
 </p>
-<div id="workflowr-sessioninfo" class="collapse">
-<pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.1.2 (2021-11-01)
-Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 20.04.3 LTS
-
-Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3
-LAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3
-
-locale:
- [1] LC_CTYPE=es_ES.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=es_ES.UTF-8        LC_COLLATE=es_ES.UTF-8    
- [5] LC_MONETARY=es_ES.UTF-8    LC_MESSAGES=es_ES.UTF-8   
- [7] LC_PAPER=es_ES.UTF-8       LC_NAME=C                 
- [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=es_ES.UTF-8 LC_IDENTIFICATION=C       
-
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
-
-other attached packages:
- [1] grateful_0.0.3    truncnorm_1.0-8   mvtnorm_1.1-3     patchwork_1.1.1  
- [5] ggsci_2.9         viridis_0.6.2     viridisLite_0.4.0 data.table_1.14.2
- [9] xtable_1.8-4      ggmcmc_1.5.1.1    coda_0.19-4       runjags_2.2.0-3  
-[13] forcats_0.5.1     stringr_1.4.0     dplyr_1.0.7       purrr_0.3.4      
-[17] readr_2.1.0       tidyr_1.1.4       tibble_3.1.6      ggplot2_3.3.5    
-[21] tidyverse_1.3.1   pacman_0.5.1      workflowr_1.6.2  
-
-loaded via a namespace (and not attached):
- [1] httr_1.4.2         sass_0.4.0         jsonlite_1.7.2     modelr_0.1.8      
- [5] bslib_0.3.1        assertthat_0.2.1   cellranger_1.1.0   yaml_2.2.1        
- [9] pillar_1.6.4       backports_1.3.0    lattice_0.20-45    glue_1.5.0        
-[13] digest_0.6.28      RColorBrewer_1.1-2 promises_1.2.0.1   rvest_1.0.2       
-[17] colorspace_2.0-2   htmltools_0.5.2    httpuv_1.6.3       plyr_1.8.6        
-[21] pkgconfig_2.0.3    broom_0.7.10       haven_2.4.3        scales_1.1.1      
-[25] whisker_0.4        later_1.3.0        tzdb_0.2.0         git2r_0.28.0      
-[29] generics_0.1.1     ellipsis_0.3.2     withr_2.4.2        cli_3.1.0         
-[33] magrittr_2.0.1     crayon_1.4.2       readxl_1.3.1       evaluate_0.14     
-[37] GGally_2.1.2       fs_1.5.0           fansi_0.5.0        xml2_1.3.2        
-[41] tools_4.1.2        hms_1.1.1          lifecycle_1.0.1    munsell_0.5.0     
-[45] reprex_2.0.1       compiler_4.1.2     jquerylib_0.1.4    rlang_0.4.12      
-[49] grid_4.1.2         rstudioapi_0.13    rmarkdown_2.11     gtable_0.3.0      
-[53] DBI_1.1.1          reshape_0.8.8      R6_2.5.1           gridExtra_2.3     
-[57] lubridate_1.8.0    knitr_1.36         fastmap_1.1.0      utf8_1.2.2        
-[61] rprojroot_2.0.2    stringi_1.7.5      parallel_4.1.2     Rcpp_1.0.7        
-[65] vctrs_0.3.8        dbplyr_2.1.1       tidyselect_1.1.1   xfun_0.28         </code></pre>
+<p><br /></p>
+<p>Scavenging is a key ecological process controlling energy flow in
+ecosystems and providing valuable ecosystem services worldwide. As
+long-lived species, the demographic dynamics of vultures can be
+disrupted by spatiotemporal fluctuations in food availability, with
+dramatic impacts on their population viability and the ecosystem
+services provided. In Europe, the outbreak of bovine spongiform
+encephalopathy (BSE) in 2001 prompted a restrictive sanitary regulation
+banning the presence of livestock carcasses in the wild on a continental
+scale. In long-lived vertebrate species, the buffering hypothesis
+predicts that the demographic traits with the largest contribution to
+population growth rate should be less temporally variable. The BSE
+outbreak provides a unique opportunity to test for the impact of
+demographic buffering in a keystone scavenger suffering abrupt but
+transient food shortages. We studied the 42-year dynamics (1979–2020) of
+one of the world’s largest breeding colonies of Eurasian griffon
+vultures (Gyps fulvus). We fitted an inverse Bayesian state-space model
+with density-dependent demographic rates to the time series of
+stage-structured abundances to investigate shifts in vital rates and
+population dynamics before, during, and after the implementation of a
+restrictive sanitary regulation. Prior to the BSE outbreak the dynamics
+was mainly driven by adult survival: 83% of temporal variance in
+abundance was explained by variability in this rate. Moreover, during
+this period the regulation of population size operated through
+density-dependent fecundity and subadult survival. However, after the
+onset of the European ban, a 1-month delay in average laying date, a
+drop in fecundity, and a reduction in the number of fledglings induced a
+transient increase in the impact of fledgling and subadult recruitment
+on dynamics. Although adult survival rate remained constantly high, as
+predicted by the buffering hypothesis, its relative impact on the
+temporal variance in abundance dropped to 71% during the sanitary
+regulation and to 54% after the ban was lifted. A significant increase
+in the relative impact of environmental stochasticity on dynamics was
+modeled after the BSE outbreak. These results provide empirical evidence
+on how abrupt environmental deterioration may induce dramatic
+demographic and dynamic changes in the populations of keystone
+scavengers, with far-reaching impacts on ecosystem functioning
+worldwide.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
 TeX fonts only; see
-http://docs.mathjax.org/en/latest/configuration.html.  This will make
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
 the presentation more consistent at the cost of the webpage sometimes
 taking slightly longer to load. Note that this only works because the
 footer is added to webpages before the MathJax javascript. -->
@@ -846,8 +737,6 @@ footer is added to webpages before the MathJax javascript. -->
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -880,35 +769,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

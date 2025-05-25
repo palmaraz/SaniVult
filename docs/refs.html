@@ -13,7 +13,7 @@
 
 <title>R packages used</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.29.1/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -29,16 +29,16 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 
-<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
 <style type="text/css">
 div.section {
@@ -71,11 +71,13 @@ if (window.hljs) {
 
 
 
+
 <style type="text/css">
 /* for pandoc --citeproc since 2.11 */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -117,6 +119,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -174,11 +179,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -207,8 +216,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -216,16 +225,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -342,7 +344,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -355,6 +357,9 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
+  <a href="Reproduce.html">Reproduce</a>
+</li>
+<li>
   <a href="refs.html">R packages used</a>
 </li>
 <li>
@@ -365,6 +370,13 @@ div.tocify {
         <li>
   <a href="https://github.com/palmaraz/SaniVult">
     <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+<li>
+  <a href="https://doi.org/10.5281/zenodo.5718953">
+    <span class="fas fa-z"></span>
      
     Source code
   </a>
@@ -385,7 +397,9 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -394,7 +408,9 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -403,17 +419,27 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-11-19
+<strong>Last updated:</strong> 2025-05-25
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 0
 </p>
 <p>
-<strong>Knit directory:</strong> <code>SaniVult/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+<strong>Knit directory:</strong> <code>SaniVult/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
 </p>
 <p>
-This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
-  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.1). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
 </p>
 <hr>
 </div>
@@ -422,31 +448,54 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate"
+class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcompalmarazSaniVulttree914db7faf0f738f9d195e62a64530b58b66d496ctargetblank914db7fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/palmaraz/SaniVult/tree/914db7faf0f738f9d195e62a64530b58b66d496c" target="_blank">914db7f</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcompalmarazSaniVulttreea6c7740b48945b2c1458e36d0e7c8ce8b46017cdtargetblanka6c7740a">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/palmaraz/SaniVult/tree/a6c7740b48945b2c1458e36d0e7c8ce8b46017cd" target="_blank">a6c7740</a>
+</a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcompalmarazSaniVulttree914db7faf0f738f9d195e62a64530b58b66d496ctargetblank914db7fa" class="panel-collapse collapse">
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcompalmarazSaniVulttreea6c7740b48945b2c1458e36d0e7c8ce8b46017cdtargetblanka6c7740a"
+class="panel-collapse collapse">
 <div class="panel-body">
 <p>
-Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/palmaraz/SaniVult/tree/914db7faf0f738f9d195e62a64530b58b66d496c" target="_blank">914db7f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version
+<a href="https://github.com/palmaraz/SaniVult/tree/a6c7740b48945b2c1458e36d0e7c8ce8b46017cd" target="_blank">a6c7740</a>.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
 </p>
 <p>
-Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
 </p>
 <pre><code>
 Ignored files:
@@ -454,17 +503,19 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  README.html
-    Untracked:  code/utilities.R
+    Untracked:  Almaraz et al. 2022 Ecol. Appl.pdf
 
 Unstaged changes:
-    Modified:   README.md
-    Modified:   code/S4D3M_JAGS_Fitting.R
-    Deleted:    code/utilities.r
+    Modified:   README.html
+    Modified:   SaniVult.Rproj
+    Modified:   analysis/_site.yml
+    Modified:   ms/biblio.bib
 
 </code></pre>
 <p>
-Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
 </p>
 </div>
 </div>
@@ -473,9 +524,12 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
-
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/refs.Rmd</code>) and HTML (<code>docs/refs.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/refs.Rmd</code>) and HTML
+(<code>docs/refs.html</code>) files. If you’ve configured a remote Git
+repository (see <code>?wflow_git_remote</code>), click on the hyperlinks
+in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -499,6 +553,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/palmaraz/SaniVult/blob/a6c7740b48945b2c1458e36d0e7c8ce8b46017cd/analysis/refs.Rmd" target="_blank">a6c7740</a>
+</td>
+<td>
+Pablo Almaraz
+</td>
+<td>
+2025-05-25
+</td>
+<td>
+Update my new project
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/palmaraz/SaniVult/f802182882dc81566984600721715c5ce36f2c66/docs/refs.html" target="_blank">f802182</a>
+</td>
+<td>
+Pablo Almaraz
+</td>
+<td>
+2021-11-19
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -542,16 +630,22 @@ Publish
 </div>
 <ul>
 <li>base <span class="citation">(R Core Team 2021)</span></li>
-<li>workflowr <span class="citation">(Blischak, Carbonetto, and Stephens 2019)</span></li>
-<li>rmarkdown <span class="citation">(Xie, Dervieux, and Riederer 2020)</span></li>
-<li>checkpoint <span class="citation">(Ooi, de Vries, and Microsoft 2021)</span></li>
+<li>workflowr <span class="citation">(Blischak, Carbonetto, and Stephens
+2019)</span></li>
+<li>rmarkdown <span class="citation">(Xie, Dervieux, and Riederer
+2020)</span></li>
+<li>checkpoint <span class="citation">(Ooi, de Vries, and Microsoft
+2021)</span></li>
 <li>coda <span class="citation">(Plummer et al. 2006)</span></li>
-<li>data.table <span class="citation">(Dowle and Srinivasan 2021)</span></li>
+<li>data.table <span class="citation">(Dowle and Srinivasan
+2021)</span></li>
 <li>ggmcmc <span class="citation">(Fernández-i-Marín 2016)</span></li>
 <li>ggsci <span class="citation">(Xiao 2018)</span></li>
-<li>grateful <span class="citation">(Rodríguez-Sánchez and Hutchins 2020)</span></li>
+<li>grateful <span class="citation">(Rodríguez-Sánchez and Hutchins
+2020)</span></li>
 <li>mvtnorm <span class="citation">(Genz and Bretz 2009)</span></li>
-<li>pacman <span class="citation">(Rinker and Kurkiewicz 2018)</span></li>
+<li>pacman <span class="citation">(Rinker and Kurkiewicz
+2018)</span></li>
 <li>patchwork <span class="citation">(Pedersen 2020)</span></li>
 <li>runjags <span class="citation">(Denwood 2016)</span></li>
 <li>tidyverse <span class="citation">(Wickham et al. 2019)</span></li>
@@ -565,85 +659,153 @@ Publish
 <li>reshape2 <span class="citation">(Wickham 2007)</span></li>
 <li>tibble <span class="citation">(Müller and Wickham 2021)</span></li>
 </ul>
-<div id="references" class="section level2 unnumbered">
-<h2 class="unnumbered">References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="references" class="section level2">
+<h2>References</h2>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent"
+entry-spacing="0">
 <div id="ref-workflowr" class="csl-entry">
-Blischak, John D, Peter Carbonetto, and Matthew Stephens. 2019. <span>“Creating and Sharing Reproducible Research Code the Workflowr Way [Version 1; Peer Review: 3 Approved].”</span> <em>F1000Research</em> 8 (1749). <a href="https://doi.org/10.12688/f1000research.20843.1">https://doi.org/10.12688/f1000research.20843.1</a>.
+Blischak, John D, Peter Carbonetto, and Matthew Stephens. 2019.
+<span>“Creating and Sharing Reproducible Research Code the Workflowr Way
+[Version 1; Peer Review: 3 Approved].”</span> <em>F1000Research</em> 8
+(1749). <a
+href="https://doi.org/10.12688/f1000research.20843.1">https://doi.org/10.12688/f1000research.20843.1</a>.
 </div>
 <div id="ref-xtable" class="csl-entry">
-Dahl, David B., David Scott, Charles Roosen, Arni Magnusson, and Jonathan Swinton. 2019. <em>Xtable: Export Tables to LaTeX or HTML</em>. <a href="https://CRAN.R-project.org/package=xtable">https://CRAN.R-project.org/package=xtable</a>.
+Dahl, David B., David Scott, Charles Roosen, Arni Magnusson, and
+Jonathan Swinton. 2019. <em>Xtable: Export Tables to LaTeX or HTML</em>.
+<a
+href="https://CRAN.R-project.org/package=xtable">https://CRAN.R-project.org/package=xtable</a>.
 </div>
 <div id="ref-runjags" class="csl-entry">
-Denwood, Matthew J. 2016. <span>“<span class="nocase">runjags</span>: An <span>R</span> Package Providing Interface Utilities, Model Templates, Parallel Computing Methods and Additional Distributions for <span>MCMC</span> Models in <span>JAGS</span>.”</span> <em>Journal of Statistical Software</em> 71 (9): 1–25. <a href="https://doi.org/10.18637/jss.v071.i09">https://doi.org/10.18637/jss.v071.i09</a>.
+Denwood, Matthew J. 2016. <span>“<span class="nocase">runjags</span>: An
+<span>R</span> Package Providing Interface Utilities, Model Templates,
+Parallel Computing Methods and Additional Distributions for
+<span>MCMC</span> Models in <span>JAGS</span>.”</span> <em>Journal of
+Statistical Software</em> 71 (9): 1–25. <a
+href="https://doi.org/10.18637/jss.v071.i09">https://doi.org/10.18637/jss.v071.i09</a>.
 </div>
 <div id="ref-data.table" class="csl-entry">
-Dowle, Matt, and Arun Srinivasan. 2021. <em>Data.table: Extension of ‘Data.frame‘</em>. <a href="https://CRAN.R-project.org/package=data.table">https://CRAN.R-project.org/package=data.table</a>.
+Dowle, Matt, and Arun Srinivasan. 2021. <em>Data.table: Extension of
+‘Data.frame‘</em>. <a
+href="https://CRAN.R-project.org/package=data.table">https://CRAN.R-project.org/package=data.table</a>.
 </div>
 <div id="ref-ggmcmc" class="csl-entry">
-Fernández-i-Marín, Xavier. 2016. <span>“<span class="nocase">ggmcmc</span>: Analysis of <span>MCMC</span> Samples and <span>B</span>ayesian Inference.”</span> <em>Journal of Statistical Software</em> 70 (9): 1–20. <a href="https://doi.org/10.18637/jss.v070.i09">https://doi.org/10.18637/jss.v070.i09</a>.
+Fernández-i-Marín, Xavier. 2016. <span>“<span
+class="nocase">ggmcmc</span>: Analysis of <span>MCMC</span> Samples and
+<span>B</span>ayesian Inference.”</span> <em>Journal of Statistical
+Software</em> 70 (9): 1–20. <a
+href="https://doi.org/10.18637/jss.v070.i09">https://doi.org/10.18637/jss.v070.i09</a>.
 </div>
 <div id="ref-viridis" class="csl-entry">
-Garnier, Simon, Ross, Noam, Rudis, Robert, Camargo, et al. 2021. <em><span class="nocase">viridis</span> - Colorblind-Friendly Color Maps for r</em>. <a href="https://doi.org/10.5281/zenodo.4679424">https://doi.org/10.5281/zenodo.4679424</a>.
+Garnier, Simon, Ross, Noam, Rudis, Robert, Camargo, et al. 2021.
+<em><span class="nocase">viridis</span> - Colorblind-Friendly Color Maps
+for r</em>. <a
+href="https://doi.org/10.5281/zenodo.4679424">https://doi.org/10.5281/zenodo.4679424</a>.
 </div>
 <div id="ref-mvtnorm" class="csl-entry">
-Genz, Alan, and Frank Bretz. 2009. <em>Computation of Multivariate Normal and t Probabilities</em>. Lecture Notes in Statistics. Heidelberg: Springer-Verlag.
+Genz, Alan, and Frank Bretz. 2009. <em>Computation of Multivariate
+Normal and t Probabilities</em>. Lecture Notes in Statistics.
+Heidelberg: Springer-Verlag.
 </div>
 <div id="ref-ggpubr" class="csl-entry">
-Kassambara, Alboukadel. 2020. <em>Ggpubr: ’Ggplot2’ Based Publication Ready Plots</em>. <a href="https://CRAN.R-project.org/package=ggpubr">https://CRAN.R-project.org/package=ggpubr</a>.
+Kassambara, Alboukadel. 2020. <em>Ggpubr: ’Ggplot2’ Based Publication
+Ready Plots</em>. <a
+href="https://CRAN.R-project.org/package=ggpubr">https://CRAN.R-project.org/package=ggpubr</a>.
 </div>
 <div id="ref-truncnorm" class="csl-entry">
-Mersmann, Olaf, Heike Trautmann, Detlef Steuer, and Björn Bornkamp. 2018. <em>Truncnorm: Truncated Normal Distribution</em>. <a href="https://CRAN.R-project.org/package=truncnorm">https://CRAN.R-project.org/package=truncnorm</a>.
+Mersmann, Olaf, Heike Trautmann, Detlef Steuer, and Björn Bornkamp.
+2018. <em>Truncnorm: Truncated Normal Distribution</em>. <a
+href="https://CRAN.R-project.org/package=truncnorm">https://CRAN.R-project.org/package=truncnorm</a>.
 </div>
 <div id="ref-tibble" class="csl-entry">
-Müller, Kirill, and Hadley Wickham. 2021. <em>Tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble">https://CRAN.R-project.org/package=tibble</a>.
+Müller, Kirill, and Hadley Wickham. 2021. <em>Tibble: Simple Data
+Frames</em>. <a
+href="https://CRAN.R-project.org/package=tibble">https://CRAN.R-project.org/package=tibble</a>.
 </div>
 <div id="ref-checkpoint" class="csl-entry">
-Ooi, Hong, Andrie de Vries, and Microsoft. 2021. <em>Checkpoint: Install Packages from Snapshots on the Checkpoint Server for Reproducibility</em>. <a href="https://CRAN.R-project.org/package=checkpoint">https://CRAN.R-project.org/package=checkpoint</a>.
+Ooi, Hong, Andrie de Vries, and Microsoft. 2021. <em>Checkpoint: Install
+Packages from Snapshots on the Checkpoint Server for
+Reproducibility</em>. <a
+href="https://CRAN.R-project.org/package=checkpoint">https://CRAN.R-project.org/package=checkpoint</a>.
 </div>
 <div id="ref-patchwork" class="csl-entry">
-Pedersen, Thomas Lin. 2020. <em>Patchwork: The Composer of Plots</em>. <a href="https://CRAN.R-project.org/package=patchwork">https://CRAN.R-project.org/package=patchwork</a>.
+Pedersen, Thomas Lin. 2020. <em>Patchwork: The Composer of Plots</em>.
+<a
+href="https://CRAN.R-project.org/package=patchwork">https://CRAN.R-project.org/package=patchwork</a>.
 </div>
 <div id="ref-coda" class="csl-entry">
-Plummer, Martyn, Nicky Best, Kate Cowles, and Karen Vines. 2006. <span>“CODA: Convergence Diagnosis and Output Analysis for MCMC.”</span> <em>R News</em> 6 (1): 7–11. <a href="https://journal.r-project.org/archive/">https://journal.r-project.org/archive/</a>.
+Plummer, Martyn, Nicky Best, Kate Cowles, and Karen Vines. 2006.
+<span>“CODA: Convergence Diagnosis and Output Analysis for MCMC.”</span>
+<em>R News</em> 6 (1): 7–11. <a
+href="https://journal.r-project.org/archive/">https://journal.r-project.org/archive/</a>.
 </div>
 <div id="ref-base" class="csl-entry">
-R Core Team. 2021. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+R Core Team. 2021. <em>R: A Language and Environment for Statistical
+Computing</em>. Vienna, Austria: R Foundation for Statistical Computing.
+<a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
 <div id="ref-pacman" class="csl-entry">
-Rinker, Tyler W., and Dason Kurkiewicz. 2018. <em><span class="nocase">pacman</span>: <span>P</span>ackage Management for <span>R</span></em>. Buffalo, New York. <a href="http://github.com/trinker/pacman">http://github.com/trinker/pacman</a>.
+Rinker, Tyler W., and Dason Kurkiewicz. 2018. <em><span
+class="nocase">pacman</span>: <span>P</span>ackage Management for
+<span>R</span></em>. Buffalo, New York. <a
+href="http://github.com/trinker/pacman">http://github.com/trinker/pacman</a>.
 </div>
 <div id="ref-grateful" class="csl-entry">
-Rodríguez-Sánchez, Francisco, and Shaurita D. Hutchins. 2020. <em>Grateful: Facilitate Citation of r Packages</em>. <a href="https://github.com/Pakillo/grateful">https://github.com/Pakillo/grateful</a>.
+Rodríguez-Sánchez, Francisco, and Shaurita D. Hutchins. 2020.
+<em>Grateful: Facilitate Citation of r Packages</em>. <a
+href="https://github.com/Pakillo/grateful">https://github.com/Pakillo/grateful</a>.
 </div>
 <div id="ref-reshape2" class="csl-entry">
-Wickham, Hadley. 2007. <span>“Reshaping Data with the <span class="nocase">reshape</span> Package.”</span> <em>Journal of Statistical Software</em> 21 (12): 1–20. <a href="http://www.jstatsoft.org/v21/i12/">http://www.jstatsoft.org/v21/i12/</a>.
+Wickham, Hadley. 2007. <span>“Reshaping Data with the <span
+class="nocase">reshape</span> Package.”</span> <em>Journal of
+Statistical Software</em> 21 (12): 1–20. <a
+href="http://www.jstatsoft.org/v21/i12/">http://www.jstatsoft.org/v21/i12/</a>.
 </div>
 <div id="ref-plyr" class="csl-entry">
-———. 2011. <span>“The Split-Apply-Combine Strategy for Data Analysis.”</span> <em>Journal of Statistical Software</em> 40 (1): 1–29. <a href="http://www.jstatsoft.org/v40/i01/">http://www.jstatsoft.org/v40/i01/</a>.
+———. 2011. <span>“The Split-Apply-Combine Strategy for Data
+Analysis.”</span> <em>Journal of Statistical Software</em> 40 (1): 1–29.
+<a
+href="http://www.jstatsoft.org/v40/i01/">http://www.jstatsoft.org/v40/i01/</a>.
 </div>
 <div id="ref-tidyverse" class="csl-entry">
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy
+D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
+<span>“Welcome to the <span class="nocase">tidyverse</span>.”</span>
+<em>Journal of Open Source Software</em> 4 (43): 1686. <a
+href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
 <div id="ref-dplyr" class="csl-entry">
-Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2021. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
+Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2021.
+<em>Dplyr: A Grammar of Data Manipulation</em>. <a
+href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
 </div>
 <div id="ref-readr" class="csl-entry">
-Wickham, Hadley, and Jim Hester. 2021. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.
+Wickham, Hadley, and Jim Hester. 2021. <em>Readr: Read Rectangular Text
+Data</em>. <a
+href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.
 </div>
 <div id="ref-ggsci" class="csl-entry">
-Xiao, Nan. 2018. <em>Ggsci: Scientific Journal and Sci-Fi Themed Color Palettes for ’Ggplot2’</em>. <a href="https://CRAN.R-project.org/package=ggsci">https://CRAN.R-project.org/package=ggsci</a>.
+Xiao, Nan. 2018. <em>Ggsci: Scientific Journal and Sci-Fi Themed Color
+Palettes for ’Ggplot2’</em>. <a
+href="https://CRAN.R-project.org/package=ggsci">https://CRAN.R-project.org/package=ggsci</a>.
 </div>
 <div id="ref-rmarkdown" class="csl-entry">
-Xie, Yihui, Christophe Dervieux, and Emily Riederer. 2020. <em>R Markdown Cookbook</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown-cookbook">https://bookdown.org/yihui/rmarkdown-cookbook</a>.
-</div>
+Xie, Yihui, Christophe Dervieux, and Emily Riederer. 2020. <em>R
+Markdown Cookbook</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a
+href="https://bookdown.org/yihui/rmarkdown-cookbook">https://bookdown.org/yihui/rmarkdown-cookbook</a>.
 </div>
 </div>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
 TeX fonts only; see
-http://docs.mathjax.org/en/latest/configuration.html.  This will make
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
 the presentation more consistent at the cost of the webpage sometimes
 taking slightly longer to load. Note that this only works because the
 footer is added to webpages before the MathJax javascript. -->
