@@ -12,12 +12,12 @@ editor_options:
 
 <br />
 
-<span style="font-size: 21px;">This is the Sanivult project repository, evaluating the impacts of the outbreak of a Bovine Spongiform Encephalopathy epidemic in Europe on the demographic and population dynamics of one of the world's largest colonies of the Eurasian Griffon vulture (*Gyps fulvus*). Get the paper [here](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1002/eap.2579). </span>
+<span style="font-size: 21px;">This is the Sanivult project repository, evaluating the impacts of the outbreak of a Bovine Spongiform Encephalopathy epidemic in Europe on the demographic and population dynamics of one of the world's largest colonies of the Eurasian Griffon vulture (*Gyps fulvus*). Get the paper [here](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1002/eap.2579){target="blank" rel="noopener noreferrer"}. </span>
 
 <br />
 
 <p align="center">
-  <a href="https://github.com/palmaraz/SaniVult">
+  <a href="https://github.com/palmaraz/SaniVult" target="_blank" rel="noopener noreferrer">
     <img src="imgs/Mario_Modesto_Mata_CC_BY-SA_(Gyps_fulvus).jpg" width="450" title="Attribution: Mario Modesto Mata / CC BY-SA (https://creativecommons.org/licenses/by-sa/3.0) Source: https://commons.wikimedia.org/wiki/File:Buitres_leonados_(Gyps_fulvus)_0.jpg">
   </a>
 </p>
