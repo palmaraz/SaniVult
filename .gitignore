@@ -9,4 +9,5 @@ analysis/*png
 analysis/*html
 analysis/*_cache
 analysis/site_libs
+pipeline.R
 ms/Almaraz et al. 2022 Ecol. Appl.pdf
