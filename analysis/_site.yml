@@ -1,7 +1,7 @@
 name: SaniVult
 output_dir: ../docs
 navbar:
-  title: The SaniVult project
+  title: SaniVult
   left:
   - text: Home
     href: index.html
