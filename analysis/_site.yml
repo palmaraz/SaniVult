@@ -5,6 +5,8 @@ navbar:
   left:
   - text: Home
     href: index.html
+  - text: Reproduce
+    href: Reproduce.html
   - text: R packages used
     href: refs.html
   - text: License
@@ -13,6 +15,9 @@ navbar:
   - icon: fa-github
     text: Source code
     href: https://github.com/palmaraz/SaniVult
+  - icon: fas fa-z
+    text: Source code
+    href: https://doi.org/10.5281/zenodo.5718953
 output:
   workflowr::wflow_html:
     toc: yes
