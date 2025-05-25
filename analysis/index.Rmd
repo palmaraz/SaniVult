@@ -8,9 +8,11 @@ editor_options:
   chunk_output_type: console
 ---
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/palmaraz/SaniVult/blob/master/LICENSE) [![DOI](https://zenodo.org/badge/429053003.svg)](https://zenodo.org/badge/latestdoi/429053003)
+
 <br />
 
-<span style="font-size: 21px;">This is the Sanivult project repository, evaluating the impacts of the outbreak of a Bovine Spongiform Encephalopathy epidemic in Europe on the demographic and population dynamics of one of the world's largest colonies of the Eurasian Griffon vulture (*Gyps fulvus*). </span>
+<span style="font-size: 21px;">This is the Sanivult project repository, evaluating the impacts of the outbreak of a Bovine Spongiform Encephalopathy epidemic in Europe on the demographic and population dynamics of one of the world's largest colonies of the Eurasian Griffon vulture (*Gyps fulvus*). Get the paper [here](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1002/eap.2579). </span>
 
 <br />
 
