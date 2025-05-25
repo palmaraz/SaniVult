@@ -19,7 +19,7 @@ navbar:
     text: Source code
     href: https://doi.org/10.5281/zenodo.5718953
   - icon: ../docs/imgs/favicon.png
-    text: RELab
+    text: Robust Ecologies Lab
     href: https://robustecologies.github.io
 output:
   workflowr::wflow_html:
