@@ -1,93 +1,25 @@
 ---
-title: "Reproducible workflow"
+title: "Home"
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
-    toc: true
+    toc: false
 editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
+<br />
 
-Please look the `README` file for further details on reproducing the results of this project. Note that the following chunks are supposed to run sequentially.
+<span style="font-size: 21px;">This is the Sanivult project repository, evaluating the impacts of the outbreak of a Bovine Spongiform Encephalopathy epidemic in Europe on the demographic and population dynamics of one of the world's largest colonies of the Eurasian Griffon vulture (*Gyps fulvus*). </span>
 
-## Load libraries
+<br />
 
-Check that the [pacman](https://github.com/trinker/pacman) package is installed. Alternatively, note that you can use the [checkpoint](https://github.com/RevolutionAnalytics/checkpoint) package to build an environment identical to the date of completion of the present project. Look at the `Session information` tab below. After [pacman](https://github.com/trinker/pacman) is installed, the `p_load` function will check that the selected packages are installed. If they are, it will load them; if not, it will first install them and then load them.
+<p align="center">
+  <a href="https://github.com/palmaraz/SaniVult">
+    <img src="../docs/imgs/Mario_Modesto_Mata_CC_BY-SA_(Gyps_fulvus).jpg" width="450" title="Attribution: Mario Modesto Mata / CC BY-SA (https://creativecommons.org/licenses/by-sa/3.0) Source: https://commons.wikimedia.org/wiki/File:Buitres_leonados_(Gyps_fulvus)_0.jpg">
+  </a>
+</p>
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+<br />
 
-```{r, eval=TRUE}
-# if (!require(checkpoint)) install.packages('checkpoint')
-# checkpoint::checkpoint("2021-11-18")
-
-if (!require(pacman)) install.packages('pacman')
-
-pacman::p_load(tidyverse,runjags,coda,ggmcmc,xtable,data.table,viridis,ggsci,patchwork,mvtnorm,truncnorm,grateful)
-
-```
-
-## Load utilities and functions
-
-```{r, eval=FALSE}
-source("code/utilities.R")
-```
-
-## Conduct the analyes
-
-This will run the analyses in an order temporal sequence.
-
-```{r, eval=FALSE}
-# All periods ####
-
-for(TimePeriod in c("PreBSE","BSE","PostBSE")){
-
-  # Loada data: ####
-  load_data(TimePeriod)
-
-  # Find the equilibrium population and the variance of state variables: ####
-  find_equilibrium_population(TimePeriod,
-                              adapt = 10000,
-                              burnin = 100000,
-                              sample = 1000,
-                              thin = 100)
-
-  # Fit the SSSSDDDM: ####
-  fit_S4D3M(TimePeriod,
-               n.chains = 3,
-               adapt = 10000,
-               burnin = 500000,
-               sample = 1000,
-               thin = 500,
-               mcmc_diagnostics_plots = TRUE,
-               PPC_simulations = TRUE,
-               N_PPC_Fits = 100,
-               burnin_ppc = 100000,
-               sample_ppc = 1000,
-               thin_ppc = 100)
-
-  }
-```
-
-## Produce the figures
-
-The call to this function will produce all the figures in the paper
-
-```{r, eval=FALSE}
-
-Figures()
-
-```
-
-
-## Compile the manuscript
-
-Once the analyses are completed and the figures produced, this shell call to the `Makefile` will compile and open the manuscript and related supplementary material: 
-
-```{bash, eval=FALSE}
-make compile
-```
-
+Scavenging is a key ecological process controlling energy flow in ecosystems and providing valuable ecosystem services worldwide. As long-lived species, the demographic dynamics of vultures can be disrupted by spatiotemporal fluctuations in food availability, with dramatic impacts on their population viability and the ecosystem services provided. In Europe, the outbreak of bovine spongiform encephalopathy (BSE) in 2001 prompted a restrictive sanitary regulation banning the presence of livestock carcasses in the wild on a continental scale. In long-lived vertebrate species, the buffering hypothesis predicts that the demographic traits with the largest contribution to population growth rate should be less temporally variable. The BSE outbreak provides a unique opportunity to test for the impact of demographic buffering in a keystone scavenger suffering abrupt but transient food shortages. We studied the 42-year dynamics (1979–2020) of one of the world's largest breeding colonies of Eurasian griffon vultures (Gyps fulvus). We fitted an inverse Bayesian state-space model with density-dependent demographic rates to the time series of stage-structured abundances to investigate shifts in vital rates and population dynamics before, during, and after the implementation of a restrictive sanitary regulation. Prior to the BSE outbreak the dynamics was mainly driven by adult survival: 83% of temporal variance in abundance was explained by variability in this rate. Moreover, during this period the regulation of population size operated through density-dependent fecundity and subadult survival. However, after the onset of the European ban, a 1-month delay in average laying date, a drop in fecundity, and a reduction in the number of fledglings induced a transient increase in the impact of fledgling and subadult recruitment on dynamics. Although adult survival rate remained constantly high, as predicted by the buffering hypothesis, its relative impact on the temporal variance in abundance dropped to 71% during the sanitary regulation and to 54% after the ban was lifted. A significant increase in the relative impact of environmental stochasticity on dynamics was modeled after the BSE outbreak. These results provide empirical evidence on how abrupt environmental deterioration may induce dramatic demographic and dynamic changes in the populations of keystone scavengers, with far-reaching impacts on ecosystem functioning worldwide.

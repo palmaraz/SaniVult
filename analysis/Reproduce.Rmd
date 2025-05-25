@@ -1,0 +1,93 @@
+---
+title: "Reproducible workflow"
+site: workflowr::wflow_site
+output:
+  workflowr::wflow_html:
+    toc: true
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+Please look the `README` file for further details on reproducing the results of this project. Note that the following chunks are supposed to run sequentially.
+
+## Load libraries
+
+Check that the [pacman](https://github.com/trinker/pacman) package is installed. Alternatively, note that you can use the [checkpoint](https://github.com/RevolutionAnalytics/checkpoint) package to build an environment identical to the date of completion of the present project. Look at the `Session information` tab below. After [pacman](https://github.com/trinker/pacman) is installed, the `p_load` function will check that the selected packages are installed. If they are, it will load them; if not, it will first install them and then load them.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, eval=TRUE}
+# if (!require(checkpoint)) install.packages('checkpoint')
+# checkpoint::checkpoint("2021-11-18")
+
+if (!require(pacman)) install.packages('pacman')
+
+pacman::p_load(tidyverse,runjags,coda,ggmcmc,xtable,data.table,viridis,ggsci,patchwork,mvtnorm,truncnorm,grateful)
+
+```
+
+## Load utilities and functions
+
+```{r, eval=FALSE}
+source("code/utilities.R")
+```
+
+## Conduct the analyes
+
+This will run the analyses in an order temporal sequence.
+
+```{r, eval=FALSE}
+# All periods ####
+
+for(TimePeriod in c("PreBSE","BSE","PostBSE")){
+
+  # Loada data: ####
+  load_data(TimePeriod)
+
+  # Find the equilibrium population and the variance of state variables: ####
+  find_equilibrium_population(TimePeriod,
+                              adapt = 10000,
+                              burnin = 100000,
+                              sample = 1000,
+                              thin = 100)
+
+  # Fit the SSSSDDDM: ####
+  fit_S4D3M(TimePeriod,
+               n.chains = 3,
+               adapt = 10000,
+               burnin = 500000,
+               sample = 1000,
+               thin = 500,
+               mcmc_diagnostics_plots = TRUE,
+               PPC_simulations = TRUE,
+               N_PPC_Fits = 100,
+               burnin_ppc = 100000,
+               sample_ppc = 1000,
+               thin_ppc = 100)
+
+  }
+```
+
+## Produce the figures
+
+The call to this function will produce all the figures in the paper
+
+```{r, eval=FALSE}
+
+Figures()
+
+```
+
+
+## Compile the manuscript
+
+Once the analyses are completed and the figures produced, this shell call to the `Makefile` will compile and open the manuscript and related supplementary material: 
+
+```{bash, eval=FALSE}
+make compile
+```
+

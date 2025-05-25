@@ -1,6 +1,6 @@
 ---
 title: R packages used
-bibliography: /home/pablo/Documentos/SaniVult/analysis/pkg-refs.bib
+bibliography: pkg-refs.bib
 #csl: null.csl
 ---
 
