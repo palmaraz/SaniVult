@@ -18,7 +18,7 @@ editor_options:
 
 <p align="center">
   <a href="https://github.com/palmaraz/SaniVult">
-    <img src="../docs/imgs/Mario_Modesto_Mata_CC_BY-SA_(Gyps_fulvus).jpg" width="450" title="Attribution: Mario Modesto Mata / CC BY-SA (https://creativecommons.org/licenses/by-sa/3.0) Source: https://commons.wikimedia.org/wiki/File:Buitres_leonados_(Gyps_fulvus)_0.jpg">
+    <img src="imgs/Mario_Modesto_Mata_CC_BY-SA_(Gyps_fulvus).jpg" width="450" title="Attribution: Mario Modesto Mata / CC BY-SA (https://creativecommons.org/licenses/by-sa/3.0) Source: https://commons.wikimedia.org/wiki/File:Buitres_leonados_(Gyps_fulvus)_0.jpg">
   </a>
 </p>
 
